@@ -7,8 +7,6 @@ import java.util.Arrays;
  */
 public class Genome {
 
-
-
     private ArrayList<ConnectionGene> connectionGenes = new ArrayList<>();
     private int nrOfInputs;
     private int nrOfOutputs;
@@ -99,7 +97,6 @@ public class Genome {
         throw new IllegalArgumentException("Connection is not to be found in net!");
     }
 
-
     public void addConnectionGene(int inputNode, int outputNode, int innovationNumber, double weight){
         ConnectionGene toAdd = new ConnectionGene(inputNode,outputNode,innovationNumber);
         toAdd.weight = weight;
@@ -151,5 +148,4 @@ public class Genome {
     public static double transferFunction(double x){
         return 1/(1+Math.exp(-4.6 * x));
     }
-
 }

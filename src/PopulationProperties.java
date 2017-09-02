@@ -1,7 +1,7 @@
 /**
  * Created by elias on 2017-05-22.
  */
-public class NEAT_PopulationInitialize {
+public class PopulationProperties {
 
     public int nrOfInputs;
     public int nrOfOutputs;
@@ -9,6 +9,7 @@ public class NEAT_PopulationInitialize {
     public GenomeMutator mutator;
 
     /*
+
     public void setNrOfInputs(int nrOfInputs) {
         this.nrOfInputs = nrOfInputs;
     }
@@ -24,10 +25,10 @@ public class NEAT_PopulationInitialize {
     public void setMutator(GenomeMutator mutator) {
         this.mutator = mutator;
     }
-*/
+
+    */
 
     public boolean isComplete() {
-
         return nrOfInputs != 0 && nrOfOutputs != 0 &&
                 populationSize != 0 && mutator != null;
     }
