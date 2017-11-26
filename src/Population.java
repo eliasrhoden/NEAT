@@ -1,18 +1,18 @@
-package NEAT_Population;
 
 import Network.Genome;
+
 
 /**
  * Created by elias on 2017-05-14.
  */
-public class NEAT_Population {
+public class Population {
 
     private Genome[] population;
-    private Genome.GenomeMutator mutator;
+    private GenomeMutator mutator;
     private int generation = 0;
     private int lastInnovationNumber = 0;
 
-    public NEAT_Population(NEAT_Population.NEAT_Params neatParams) {
+    public Population(PopulationParams neatParams) {
         createPopulation(neatParams.NR_OF_INPUTS,neatParams.NR_OF_OUTPUTS,neatParams.POPULATION_SIZE);
     }
 

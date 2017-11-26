@@ -1,4 +1,5 @@
-package Network;
+
+import Network.Genome;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -12,11 +13,11 @@ public class GenomeMutator {
     }
 
     private int lastIncreaseInnovationNR = 0;
-    private Params params;
+    private MutatorParams params;
     private ArrayList<NetworkMutation> networkMutationMemory = new ArrayList<>();
     private ArrayList<Integer> innovationNumberMemory = new ArrayList<>();
 
-    public GenomeMutator(Params params){
+    public GenomeMutator(MutatorParams params){
         this.params = params;
     }
 
@@ -83,7 +84,7 @@ public class GenomeMutator {
     }
 
     private void weightMutation(Genome g){
-
+        //TODO...
     }
 
     private int findIndexInMemory(NetworkMutation mutation) throws Exception {
@@ -138,6 +139,4 @@ public class GenomeMutator {
             return res;
         }
     }
-
-
 }

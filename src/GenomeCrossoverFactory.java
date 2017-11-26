@@ -1,3 +1,5 @@
+import Network.Genome;
+
 /**
  * Created by eliasr on 2017-05-15.
  */

@@ -7,16 +7,20 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class NEAT_PopulationTest {
 
+    /*
+
+    Skall skriva fler sub-test innan, dessa får jöbba
+
     @Test
     void populationInitTest(){
-        PopulationProperties init = new PopulationProperties();
+        Population.PopulationParams init = new Population.PopulationParams();
 
         init.mutator = new GenomeMutator();
         assertFalse(init.isComplete());
-        init.nrOfInputs = 6;
-        init.nrOfOutputs = 3;
+        init.NR_OF_INPUTS = 6;
+        init.NR_OF_OUTPUTS = 3;
         assertFalse(init.isComplete());
-        init.populationSize = 150;
+        init.POPULATION_SIZE = 150;
         assertTrue(init.isComplete());
     }
 
@@ -25,21 +29,21 @@ class NEAT_PopulationTest {
 
         final int generationLimit = 30;
 
-        PopulationProperties properties = new PopulationProperties();
+        Population.PopulationParams properties = new Population.PopulationParams();
 
         properties.mutator = new GenomeMutator();
-        properties.nrOfInputs = 2;
-        properties.nrOfOutputs = 1;
-        properties.populationSize = 150;
+        properties.NR_OF_INPUTS = 2;
+        properties.NR_OF_OUTPUTS = 1;
+        properties.POPULATION_SIZE = 150;
 
-        NEAT_Population neat = new NEAT_Population(properties);
+        Population neat = new Population(properties);
         nested:
         for(int i = 0;true;i++){
 
-            for(Genome genome:neat.getPopulation()){
+            for(Network.Network genome:neat.getPopulation()){
                 genome.setFitness(getFitnessOfGenome(genome));  //Let each individual try to do the task and return a fitness
                 if(getFitnessOfGenome(genome) > 39){
-                    System.out.println("Succseded to do the task at generation: " + neat.getCurrentGeneration());
+                    System.out.println("Succeeded to do the task at generation: " + neat.getCurrentGeneration());
                     break nested;
                 }
             }
@@ -50,7 +54,7 @@ class NEAT_PopulationTest {
         }
     }
 
-    private int getFitnessOfGenome(Genome genome){
+    private int getFitnessOfGenome(Network.Network genome){
         final double marginal = 0.4;
         final double marginal2 = 0.4;
         double[][] input = {{1, 1}, {1,0},{0,1},{0,0}};
@@ -71,5 +75,5 @@ class NEAT_PopulationTest {
 
         return fitness;
     }
-
+*/
 }
