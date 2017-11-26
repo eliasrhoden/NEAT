@@ -1,3 +1,5 @@
+package Network;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -5,96 +7,97 @@ import java.util.Random;
  * Created by elias on 2017-05-20.
  */
 public class GenomeMutator {
-
-    private static final double PROBABILITY_OF_NEW_NODE = 0.5;
-    private static final double PROBABILITY_OF_NEW_CONNECTION = 0.5;
-    private static final double PROBABILITY_OF_WEIGHT_MUTATION = 0.5;
-    private static final double PROBABILITY_OF_NEW_RANDOM_WEIGHT_ON_CONNECTION = 0.5;
-    private static final double PROBABILITY_OF_SLIGHT_CHANGE_OF_WEIGHT_ON_CONNECTION = 0.5;
-
     private enum MutationType{
         NEW_NODE,NEW_CONNECTION, MUTATE_WEIGHT;
     }
 
-    private enum WeightMutation{
-        RANDOM_WEIGHT, SLIGHT_CHANGE_OF_WEIGHT;
-    }
-
-    private int lastMutationIncreaseInInnovationNumber = 0;
-    private Random random = new Random();
+    private int lastIncreaseInnovationNR = 0;
+    private Params params;
     private ArrayList<NetworkMutation> networkMutationMemory = new ArrayList<>();
     private ArrayList<Integer> innovationNumberMemory = new ArrayList<>();
 
-    public void mutateGenome(Genome genome, int lastInovationNumber){
-        lastMutationIncreaseInInnovationNumber = 0;
-        int randomNr =  random.nextInt(100);
-
-        NetworkMutation mutation;
-
-        if(randomNr < PROBABILITY_OF_NEW_NODE*100){
-            mutation = createPreMutation(genome, MutationType.NEW_NODE);
-            if(existInMutationMemory(mutation)){
-                int indexOfPrevMutation = findIndexOf(mutation);
-                addNewNode(genome,innovationNumberMemory.get(indexOfPrevMutation));
-            }else{
-                lastInovationNumber++;
-                addNewNode(genome,lastInovationNumber);
-            }
-            //TODO
-        }
-
-        randomNr =  random.nextInt(100);
-
-        if(randomNr < PROBABILITY_OF_NEW_CONNECTION*100){
-            mutation = createPreMutation(genome, MutationType.NEW_CONNECTION);
-            if(existInMutationMemory(mutation)){
-
-            }
-
-        }
-        randomNr =  random.nextInt(100);
-        if(randomNr< PROBABILITY_OF_WEIGHT_MUTATION*100) {
-            if (randomNr < PROBABILITY_OF_NEW_RANDOM_WEIGHT_ON_CONNECTION * 100) {
-                mutateConnectinWeight(genome,WeightMutation.RANDOM_WEIGHT);
-            }
-
-            if (randomNr < PROBABILITY_OF_SLIGHT_CHANGE_OF_WEIGHT_ON_CONNECTION * 100) {
-                mutateConnectinWeight(genome, WeightMutation.SLIGHT_CHANGE_OF_WEIGHT);
-            }
-        }
+    public GenomeMutator(Params params){
+        this.params = params;
     }
 
-    private void addNewNode(Genome genome, Integer integer) {
+    public void mutateGenome(Genome genome, int lastInnovationNumber) {
+        int innovationIncrease = 0;
+        switch(randomMutation()){
+            case NEW_NODE:
+                innovationIncrease = newNodeMutation(genome);
+                break;
+            case NEW_CONNECTION:
+                innovationIncrease = newConnectionMutation(genome);
+                break;
+            case MUTATE_WEIGHT:
+                weightMutation(genome);
+                innovationIncrease = 0;
+                break;
+            default:
+                //No mutation
+                innovationIncrease = 0;
+        }
+        lastIncreaseInnovationNR = innovationIncrease;
+    }
+
+    private MutationType randomMutation() {
+        Random random = new Random();
+        MutationType[] possibleMutations = MutationType.values();
 
 
 
+
+        //TODO Return a random mutation...
+        return null;
+    }
+
+    private int newNodeMutation(Genome genome) {
+        //TODO...
+        return 0;
+    }
+
+    private int newConnectionMutation(Genome genome) {
+        int innovationIncrease = 0;
+        NetworkMutation mutation = createNewConnection(genome);
+        try{
+            int index = findIndexInMemory(mutation);
+        }catch(Exception e){
+            innovationIncrease = 1;
+        }
+        return innovationIncrease;
+    }
+
+    private NetworkMutation createNewConnection(Genome genome){
+        Random r = new Random();
+        int nrofInputs, nrOfHidden, nrOfOutput;
+        nrofInputs = genome.getInputNodeIDs().length;
+        nrOfHidden = genome.getHiddenNodeIDs().length;
+        nrOfOutput = genome.getOutputNodeIDs().length;
+
+        int[] possibleInputs = new int[nrofInputs + nrOfHidden];
+        int[] possibleOutputs = new int[nrOfHidden + nrOfOutput];
+
+        //TODO...
+
+        return null;
+    }
+
+    private void weightMutation(Genome g){
 
     }
 
-    private int findIndexOf(NetworkMutation mutation) {
+    private int findIndexInMemory(NetworkMutation mutation) throws Exception {
         int res = -1;
         for(int i = 0;i<networkMutationMemory.size();i++){
             if(networkMutationMemory.get(i).equals(mutation)){
                 res = i;
+                break;
             }
         }
+        if(res == -1){
+            throw new Exception("Mutation not found in memory!");
+        }
         return res;
-    }
-
-
-    private NetworkMutation createPreMutation(Genome genome, MutationType type) {
-        ArrayList<ConnectionGene> connections = genome.getConnectionGenes();
-        int randomIndex = random.nextInt(connections.size());
-        ConnectionGene connectionToSplit = connections.get(randomIndex);
-        NetworkMutation newMutation = new NetworkMutation(type,connectionToSplit.inputNode,connectionToSplit.outputNode);
-
-        return newMutation;
-    }
-
-    //Mutate a random connection in the genome
-    private void mutateConnectinWeight(Genome g, WeightMutation typeOfMutation){
-
-
     }
 
     private boolean existInMutationMemory(NetworkMutation mutation){
@@ -106,15 +109,14 @@ public class GenomeMutator {
         return res;
     }
 
-
     public int getLastMutationInnovationIncrease(){
-        return lastMutationIncreaseInInnovationNumber;
+        return lastIncreaseInnovationNR;
     }
 
     public void clearMutationMemory(){
         networkMutationMemory = new ArrayList<>();
         innovationNumberMemory = new ArrayList<>();
-        lastMutationIncreaseInInnovationNumber = 0;
+        lastIncreaseInnovationNR = 0;
     }
 
     class NetworkMutation {

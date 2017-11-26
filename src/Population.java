@@ -1,4 +1,6 @@
-import java.util.ArrayList;
+package NEAT_Population;
+
+import Network.Genome;
 
 /**
  * Created by elias on 2017-05-14.
@@ -6,23 +8,22 @@ import java.util.ArrayList;
 public class NEAT_Population {
 
     private Genome[] population;
-    private GenomeMutator mutator;
+    private Genome.GenomeMutator mutator;
     private int generation = 0;
     private int lastInnovationNumber = 0;
 
-    public NEAT_Population(PopulationProperties popP) {
-
-        if(!popP.isComplete()){
-            throw new IllegalArgumentException("PopulationProperties object is not complete!");
-        }
-
-        createPopulation(popP.nrOfInputs,popP.nrOfOutputs,popP.populationSize);
+    public NEAT_Population(NEAT_Population.NEAT_Params neatParams) {
+        createPopulation(neatParams.NR_OF_INPUTS,neatParams.NR_OF_OUTPUTS,neatParams.POPULATION_SIZE);
     }
 
     public int getCurrentGeneration() {
         return generation;
     }
 
+    public void createNextGeneration() {
+        mutatePopulation();
+        generation++;
+    }
 
     public void mutatePopulation() {
         for (Genome genome : population) {
@@ -32,17 +33,9 @@ public class NEAT_Population {
         mutator.clearMutationMemory();
     }
 
-
-    public void createNextGeneration() {
-        mutatePopulation();
-        generation++;
-    }
-
-
     public Genome[] getPopulation() {
         return population;
     }
-
 
     public Genome getFittestGenome() {
         Genome fittest = new Genome(1,1);

@@ -1,3 +1,5 @@
+package Network;
+
 /**
  * Created by elias on 2017-05-12.
  * A gene to be used in Genomes/Nets
@@ -6,15 +8,15 @@ public class ConnectionGene {
     public int inputNode;
     public int outputNode;
     public double weight;
-    public int inovationNumber;
+    public int innovationNumber;
     public boolean enabled;
 
-    public ConnectionGene(int inputNode, int outputNode,int inovationNumber){
+    public ConnectionGene(int inputNode, int outputNode,int innovationNumber){
         weight = 1;
         enabled = true;
         this.inputNode = inputNode;
         this.outputNode = outputNode;
-        this.inovationNumber = inovationNumber;
+        this.innovationNumber = innovationNumber;
     }
 
     public boolean equals(ConnectionGene gene){
@@ -23,7 +25,7 @@ public class ConnectionGene {
         res = res && this.outputNode == gene.outputNode;
         res = res && this.inputNode == gene.inputNode;
         res = res && this.enabled == gene.enabled;
-        res = res && this.inovationNumber == gene.inovationNumber;
+        res = res && this.innovationNumber == gene.innovationNumber;
         return res;
     }
 
