@@ -2,6 +2,7 @@
 import Network.Genome;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -12,7 +13,6 @@ public class GenomeMutator {
         NEW_NODE,NEW_CONNECTION, MUTATE_WEIGHT;
     }
 
-    private int lastIncreaseInnovationNR = 0;
     private MutatorParams params;
     private ArrayList<NetworkMutation> networkMutationMemory = new ArrayList<>();
     private ArrayList<Integer> innovationNumberMemory = new ArrayList<>();
@@ -21,35 +21,28 @@ public class GenomeMutator {
         this.params = params;
     }
 
-    public void mutateGenome(Genome genome, int lastInnovationNumber) {
-        int innovationIncrease = 0;
-        switch(randomMutation()){
-            case NEW_NODE:
-                innovationIncrease = newNodeMutation(genome);
-                break;
-            case NEW_CONNECTION:
-                innovationIncrease = newConnectionMutation(genome);
-                break;
-            case MUTATE_WEIGHT:
-                weightMutation(genome);
-                innovationIncrease = 0;
-                break;
-            default:
-                //No mutation
-                innovationIncrease = 0;
-        }
-        lastIncreaseInnovationNR = innovationIncrease;
+    public void mutateGenome(Genome genome) {
+
+
     }
 
-    private MutationType randomMutation() {
+    public List<MutationType> randomMutations() {
         Random random = new Random();
-        MutationType[] possibleMutations = MutationType.values();
+        ArrayList<MutationType> res = new ArrayList<>();
 
+        if(random.nextInt(100)<params.PROBABILITY_OF_NEW_NODE*100){
+            res.add(MutationType.NEW_NODE);
+        }
 
+        if(random.nextInt(100)<params.PROBABILITY_OF_NEW_CONNECTION*100){
+            res.add(MutationType.NEW_CONNECTION);
+        }
 
+        if(random.nextInt(100)<params.PROBABILITY_OF_WEIGHT_MUTATION*100){
+            res.add(MutationType.MUTATE_WEIGHT);
+        }
 
-        //TODO Return a random mutation...
-        return null;
+        return res;
     }
 
     private int newNodeMutation(Genome genome) {
@@ -110,20 +103,17 @@ public class GenomeMutator {
         return res;
     }
 
-    public int getLastMutationInnovationIncrease(){
-        return lastIncreaseInnovationNR;
-    }
 
     public void clearMutationMemory(){
         networkMutationMemory = new ArrayList<>();
         innovationNumberMemory = new ArrayList<>();
-        lastIncreaseInnovationNR = 0;
     }
 
     class NetworkMutation {
         private MutationType mutationType;
         private int inputNodeID;
         private int outputNodeID;
+        public int innovationNumber;
 
         public NetworkMutation(MutationType mutationType, int inputNodeID, int outputNodeID){
             this.mutationType = mutationType;
