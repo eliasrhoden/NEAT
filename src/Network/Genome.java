@@ -135,6 +135,16 @@ public class Genome {
         return res;
     }
 
+    public int getHighestInnovationNumber(){
+        int highestInnNumber = 0;
+        for(ConnectionGene g:connectionGenes){
+            if(g.innovationNumber>highestInnNumber){
+                highestInnNumber = g.innovationNumber;
+            }
+        }
+        return highestInnNumber;
+    }
+
     public ArrayList<ConnectionGene> getConnectionGenes() {
         return connectionGenes;
     }

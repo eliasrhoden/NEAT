@@ -51,6 +51,14 @@ class GenomeTest {
         assertEquals(8,swag[0]);
         assertEquals(9,swag[1]);
         assertEquals(10,swag[2]);
+
+    }
+
+    @Test
+    void innovationNumberTest(){
+        Genome g = new Genome(3,1);
+        assertEquals(2,g.getHighestInnovationNumber());
+
     }
 
     @Test
@@ -123,4 +131,6 @@ class GenomeTest {
         assertEquals((int)(Genome.transferFunction(0.2) * 100),71);
         assertEquals((int)(Genome.transferFunction(-0.2) * 100),28);
     }
+
+
 }

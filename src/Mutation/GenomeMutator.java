@@ -1,3 +1,4 @@
+package Mutation;
 
 import Network.Genome;
 
@@ -15,15 +16,37 @@ public class GenomeMutator {
 
     private MutatorParams params;
     private ArrayList<NetworkMutation> networkMutationMemory = new ArrayList<>();
-    private ArrayList<Integer> innovationNumberMemory = new ArrayList<>();
 
     public GenomeMutator(MutatorParams params){
         this.params = params;
     }
 
     public void mutateGenome(Genome genome) {
+        for(MutationType mType:randomMutations()){
+            NetworkMutation mutation = null;
+            switch (mType){
+                case NEW_NODE:
 
+                    break;
+                case NEW_CONNECTION:
 
+                    break;
+                case MUTATE_WEIGHT:
+
+                    break;
+            }
+            int prevOccurredInnovationNr = findMutationInMemory(mutation);
+            if(prevOccurredInnovationNr>=0){
+                mutation.innovationNumber = prevOccurredInnovationNr;
+            }else{
+                mutation.innovationNumber = genome.getHighestInnovationNumber() + 1;
+            }
+            mutation.applyToGenome(genome);
+        }
+    }
+
+    private int findMutationInMemory(NetworkMutation mutation) {
+        return 0;
     }
 
     public List<MutationType> randomMutations() {
@@ -106,27 +129,7 @@ public class GenomeMutator {
 
     public void clearMutationMemory(){
         networkMutationMemory = new ArrayList<>();
-        innovationNumberMemory = new ArrayList<>();
     }
 
-    class NetworkMutation {
-        private MutationType mutationType;
-        private int inputNodeID;
-        private int outputNodeID;
-        public int innovationNumber;
 
-        public NetworkMutation(MutationType mutationType, int inputNodeID, int outputNodeID){
-            this.mutationType = mutationType;
-            this.inputNodeID = inputNodeID;
-            this.outputNodeID = outputNodeID;
-        }
-
-        public boolean equals(NetworkMutation otherNet){
-            boolean res = true;
-            res = res && otherNet.mutationType == this.mutationType;
-            res = res && otherNet.inputNodeID == this.inputNodeID;
-            res = res && otherNet.outputNodeID == this.outputNodeID;
-            return res;
-        }
-    }
 }

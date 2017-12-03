@@ -1,4 +1,5 @@
 
+import Mutation.GenomeMutator;
 import Network.Genome;
 
 
@@ -27,8 +28,8 @@ public class Population {
 
     public void mutatePopulation() {
         for (Genome genome : population) {
-            mutator.mutateGenome(genome, lastInnovationNumber);
-            lastInnovationNumber += mutator.getLastMutationInnovationIncrease();
+            ///mutator.mutateGenome(genome, lastInnovationNumber);
+           // lastInnovationNumber += mutator.getLastMutationInnovationIncrease();
         }
         mutator.clearMutationMemory();
     }

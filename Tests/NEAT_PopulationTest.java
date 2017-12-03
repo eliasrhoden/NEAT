@@ -15,7 +15,7 @@ class NEAT_PopulationTest {
     void populationInitTest(){
         Population.PopulationParams init = new Population.PopulationParams();
 
-        init.mutator = new GenomeMutator();
+        init.mutator = new Mutation.GenomeMutator();
         assertFalse(init.isComplete());
         init.NR_OF_INPUTS = 6;
         init.NR_OF_OUTPUTS = 3;
@@ -31,7 +31,7 @@ class NEAT_PopulationTest {
 
         Population.PopulationParams properties = new Population.PopulationParams();
 
-        properties.mutator = new GenomeMutator();
+        properties.mutator = new Mutation.GenomeMutator();
         properties.NR_OF_INPUTS = 2;
         properties.NR_OF_OUTPUTS = 1;
         properties.POPULATION_SIZE = 150;
