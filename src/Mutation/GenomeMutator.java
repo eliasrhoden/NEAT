@@ -1,6 +1,7 @@
 package Mutation;
 
 import Network.Genome;
+import sun.util.resources.cldr.twq.CurrencyNames_twq;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,8 +59,14 @@ public class GenomeMutator {
     }
 
     private NetworkMutation findMutationInMemory(NetworkMutation mutation) {
-        //TODO, return null if not found.
-        return null;
+        NetworkMutation res = null;
+        for(NetworkMutation n:networkMutationMemory){
+            if(mutation.equals(n)){
+                res = n;
+                break;
+            }
+        }
+        return res;
     }
 
     public List<MutationType> randomMutations() {
