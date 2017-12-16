@@ -41,7 +41,7 @@ public class GenomeMutator {
             }else{
                 mutation.innovationNumber = genome.getHighestInnovationNumber() + 1;
             }
-            mutation.applyToGenome(genome);
+            mutation.applySpecificToGenome(genome);
         }
     }
 

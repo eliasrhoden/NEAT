@@ -12,7 +12,7 @@ public class NewNode extends NetworkMutation {
     }
 
     @Override
-    public void applyToGenome(Genome genome) {
+    public void applySpecificToGenome(Genome genome) {
 
     }
 }
