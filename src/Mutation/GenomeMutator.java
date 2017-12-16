@@ -16,9 +16,11 @@ public class GenomeMutator {
 
     private MutatorParams params;
     private ArrayList<NetworkMutation> networkMutationMemory = new ArrayList<>();
+    private int innovationCounter;
 
     public GenomeMutator(MutatorParams params){
         this.params = params;
+        innovationCounter = 0;
     }
 
     public void mutateGenome(Genome genome) {
@@ -26,27 +28,38 @@ public class GenomeMutator {
             NetworkMutation mutation = null;
             switch (mType){
                 case NEW_NODE:
-
+                    mutation = newNodeMutation(genome);
                     break;
                 case NEW_CONNECTION:
-
+                    mutation = newConnectionMutation(genome);
                     break;
                 case MUTATE_WEIGHT:
+                    //Not to be added to memory, thereby skip all code regarding innovation number
+                    weightMutation(genome);
+                    continue;
+            }
 
-                    break;
-            }
-            int prevOccurredInnovationNr = findMutationInMemory(mutation);
-            if(prevOccurredInnovationNr>=0){
-                mutation.innovationNumber = prevOccurredInnovationNr;
+            NetworkMutation prevMutation = findMutationInMemory(mutation);
+            if(prevMutation == null){
+                mutation.innovationNumber = innovationCounter;
+                innovationCounter++;
             }else{
-                mutation.innovationNumber = genome.getHighestInnovationNumber() + 1;
+                mutation.innovationNumber = prevMutation.innovationNumber;
             }
-            mutation.applySpecificToGenome(genome);
+
+            try {
+                mutation.applyToGenome(genome);
+                networkMutationMemory.add(mutation);
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("Error while applying mutation to genome!");
+            }
         }
     }
 
-    private int findMutationInMemory(NetworkMutation mutation) {
-        return 0;
+    private NetworkMutation findMutationInMemory(NetworkMutation mutation) {
+        //TODO, return null if not found.
+        return null;
     }
 
     public List<MutationType> randomMutations() {
@@ -68,34 +81,13 @@ public class GenomeMutator {
         return res;
     }
 
-    private int newNodeMutation(Genome genome) {
+    private NewNode newNodeMutation(Genome genome) {
         //TODO...
-        return 0;
+        return null;
     }
 
-    private int newConnectionMutation(Genome genome) {
-        int innovationIncrease = 0;
-        NetworkMutation mutation = createNewConnection(genome);
-        try{
-            int index = findIndexInMemory(mutation);
-        }catch(Exception e){
-            innovationIncrease = 1;
-        }
-        return innovationIncrease;
-    }
-
-    private NetworkMutation createNewConnection(Genome genome){
-        Random r = new Random();
-        int nrofInputs, nrOfHidden, nrOfOutput;
-        nrofInputs = genome.getInputNodeIDs().length;
-        nrOfHidden = genome.getHiddenNodeIDs().length;
-        nrOfOutput = genome.getOutputNodeIDs().length;
-
-        int[] possibleInputs = new int[nrofInputs + nrOfHidden];
-        int[] possibleOutputs = new int[nrOfHidden + nrOfOutput];
-
+    private NewConnection newConnectionMutation(Genome genome) {
         //TODO...
-
         return null;
     }
 
@@ -103,32 +95,14 @@ public class GenomeMutator {
         //TODO...
     }
 
-    private int findIndexInMemory(NetworkMutation mutation) throws Exception {
-        int res = -1;
-        for(int i = 0;i<networkMutationMemory.size();i++){
-            if(networkMutationMemory.get(i).equals(mutation)){
-                res = i;
-                break;
-            }
-        }
-        if(res == -1){
-            throw new Exception("Mutation not found in memory!");
-        }
-        return res;
-    }
-
     private boolean existInMutationMemory(NetworkMutation mutation){
-        boolean res = false;
-        for(NetworkMutation nM:networkMutationMemory){
-            if(nM.equals(mutation))
-                res = true;
-        }
-        return res;
+        return networkMutationMemory.contains(mutation);
     }
 
 
     public void clearMutationMemory(){
         networkMutationMemory = new ArrayList<>();
+        innovationCounter = 0;
     }
 
 
