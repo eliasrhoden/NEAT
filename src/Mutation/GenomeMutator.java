@@ -1,8 +1,6 @@
 package Mutation;
 
 import Network.Genome;
-import sun.util.resources.cldr.twq.CurrencyNames_twq;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
