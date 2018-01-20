@@ -1,3 +1,5 @@
+package Network;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -6,8 +8,6 @@ import java.util.Arrays;
  * A network/individual
  */
 public class Genome {
-
-
 
     private ArrayList<ConnectionGene> connectionGenes = new ArrayList<>();
     private int nrOfInputs;
@@ -99,7 +99,6 @@ public class Genome {
         throw new IllegalArgumentException("Connection is not to be found in net!");
     }
 
-
     public void addConnectionGene(int inputNode, int outputNode, int innovationNumber, double weight){
         ConnectionGene toAdd = new ConnectionGene(inputNode,outputNode,innovationNumber);
         toAdd.weight = weight;
@@ -136,6 +135,16 @@ public class Genome {
         return res;
     }
 
+    public int getHighestInnovationNumber(){
+        int highestInnNumber = 0;
+        for(ConnectionGene g:connectionGenes){
+            if(g.innovationNumber>highestInnNumber){
+                highestInnNumber = g.innovationNumber;
+            }
+        }
+        return highestInnNumber;
+    }
+
     public ArrayList<ConnectionGene> getConnectionGenes() {
         return connectionGenes;
     }
@@ -151,5 +160,4 @@ public class Genome {
     public static double transferFunction(double x){
         return 1/(1+Math.exp(-4.6 * x));
     }
-
 }
