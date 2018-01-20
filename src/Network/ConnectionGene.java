@@ -11,6 +11,10 @@ public class ConnectionGene {
     public int innovationNumber;
     public boolean enabled;
 
+    public ConnectionGene(int inputNode, int outputNode){
+        this(inputNode,outputNode,-1);
+    }
+
     public ConnectionGene(int inputNode, int outputNode,int innovationNumber){
         weight = 1;
         enabled = true;

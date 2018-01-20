@@ -1,3 +1,5 @@
+package Network;
+
 import Network.Genome;
 import org.junit.jupiter.api.Test;
 
@@ -51,7 +53,6 @@ class GenomeTest {
         assertEquals(8,swag[0]);
         assertEquals(9,swag[1]);
         assertEquals(10,swag[2]);
-
     }
 
     @Test

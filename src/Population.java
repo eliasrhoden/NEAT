@@ -1,5 +1,4 @@
 
-import Mutation.GenomeMutator;
 import Network.Genome;
 
 
@@ -8,8 +7,14 @@ import Network.Genome;
  */
 public class Population {
 
+    /**
+     * To be considered as PSEUDO-code only so far, need to implemtnes lower level peices first
+     * And also write TESTS for this...
+     *
+     * */
+
     private Genome[] population;
-    private GenomeMutator mutator;
+    //private GenomeMutator mutator;
     private int generation = 0;
     private int lastInnovationNumber = 0;
 
@@ -31,7 +36,7 @@ public class Population {
             ///mutator.mutateGenome(genome, lastInnovationNumber);
            // lastInnovationNumber += mutator.getLastMutationInnovationIncrease();
         }
-        mutator.clearMutationMemory();
+        //mutator.clearMutationMemory();
     }
 
     public Genome[] getPopulation() {

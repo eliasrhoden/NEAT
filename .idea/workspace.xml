@@ -2,7 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40622c5c-d669-43e9-87dd-9af274126648" name="Default" comment="Innan cleanup an mutator">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Mutation/GenomeMutator.java" afterPath="$PROJECT_DIR$/src/Mutation/GenomeMutator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WorkLog.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Tests/GenomeMutatorTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Tests/NEAT_PopulationTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/NEAT/NEAT_PopulationTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Mutation/GenomeMutator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Mutation/MutateWeight.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Mutation/NetworkMutation.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Mutation/NewConnection.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Mutation/NewNode.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NEAT/Mutation/GenomeMutator$1.class" afterPath="$PROJECT_DIR$/out/production/NEAT/Mutation/GenomeMutator$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NEAT/Mutation/GenomeMutator$MutationType.class" afterPath="$PROJECT_DIR$/out/production/NEAT/Mutation/GenomeMutator$MutationType.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NEAT/Mutation/GenomeMutator.class" afterPath="$PROJECT_DIR$/out/production/NEAT/Mutation/GenomeMutator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NEAT/Mutation/MutateWeight.class" afterPath="$PROJECT_DIR$/out/production/NEAT/Mutation/MutateWeight.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NEAT/Mutation/MutatorParams.class" afterPath="$PROJECT_DIR$/out/production/NEAT/Mutation/MutatorParams.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NEAT/Mutation/NetworkMutation.class" afterPath="$PROJECT_DIR$/out/production/NEAT/Mutation/NetworkMutation.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NEAT/Network/Genome.class" afterPath="$PROJECT_DIR$/out/production/NEAT/Network/Genome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NEAT/Population.class" afterPath="$PROJECT_DIR$/out/production/NEAT/Population.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/NEAT/GenomeMutatorTest.class" afterPath="$PROJECT_DIR$/out/test/NEAT/GenomeMutatorTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/NEAT/GenomeTest.class" afterPath="$PROJECT_DIR$/out/test/NEAT/GenomeTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/GenomeTest.java" afterPath="$PROJECT_DIR$/Tests/GenomeTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Mutation/MutatorParams.java" afterPath="$PROJECT_DIR$/src/Mutation/MutatorParams.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Population.java" afterPath="$PROJECT_DIR$/src/Population.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PopulationParams.java" afterPath="$PROJECT_DIR$/src/PopulationParams.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,40 +41,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GenomeMutator.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Mutation/GenomeMutator.java">
+      <file leaf-file-name="WorkLog.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WorkLog.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3072#3073#0" expanded="true" />
-                <element signature="e#3135#3136#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NetworkMutation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Mutation/NetworkMutation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1232#1241#0" expanded="true" />
-                <element signature="e#1298#1307#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NewNode.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Mutation/NewNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="44" />
+            <state relative-caret-position="85">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mutator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Mutation/Mutator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MutatorTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tests/Mutation/MutatorTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Population.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Population.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConnectionGene.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Network/ConnectionGene.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding>
+                <element signature="e#325#326#0" expanded="true" />
+                <element signature="e#370#371#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,19 +124,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MutateWeight.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Mutation/MutateWeight.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-              <folding>
-                <element signature="e#154#155#0" expanded="true" />
-                <element signature="e#202#203#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -101,6 +131,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -147,18 +178,27 @@
         <option value="$PROJECT_DIR$/src/NEAT_Params.java" />
         <option value="$PROJECT_DIR$/src/Params.java" />
         <option value="$PROJECT_DIR$/src/MutatorParams.java" />
-        <option value="$PROJECT_DIR$/src/PopulationParams.java" />
-        <option value="$PROJECT_DIR$/src/Population.java" />
         <option value="$PROJECT_DIR$/src/Network/Genome.java" />
-        <option value="$PROJECT_DIR$/Tests/GenomeTest.java" />
         <option value="$PROJECT_DIR$/src/GenomeMutator.java" />
-        <option value="$PROJECT_DIR$/src/Mutation/MutatorParams.java" />
         <option value="$PROJECT_DIR$/src/Mutation/NewNode.java" />
-        <option value="$PROJECT_DIR$/src/Mutation/NewConnection.java" />
-        <option value="$PROJECT_DIR$/Tests/GenomeMutatorTest.java" />
-        <option value="$PROJECT_DIR$/src/Mutation/NetworkMutation.java" />
         <option value="$PROJECT_DIR$/src/Mutation/MutateWeight.java" />
+        <option value="$PROJECT_DIR$/Tests/GenomeTest.java" />
+        <option value="$PROJECT_DIR$/src/PopulationParams.java" />
+        <option value="$PROJECT_DIR$/WorkLog.txt" />
+        <option value="$PROJECT_DIR$/Tests/GenomeMutatorTest.java" />
+        <option value="$PROJECT_DIR$/src/Mutation/MutatorParams.java" />
         <option value="$PROJECT_DIR$/src/Mutation/GenomeMutator.java" />
+        <option value="$PROJECT_DIR$/src/Mutation/NetworkMutation.java" />
+        <option value="$PROJECT_DIR$/src/Mutation/NewConnection.java" />
+        <option value="$PROJECT_DIR$/src/Mutation/MutationTypes/NetworkMutation.java" />
+        <option value="$PROJECT_DIR$/src/Mutation/MutationTypes/NewConnection.java" />
+        <option value="$PROJECT_DIR$/src/Mutation/MutationTypes/NewNode.java" />
+        <option value="$PROJECT_DIR$/src/Mutation/NetMutationTypes/NetworkMutation.java" />
+        <option value="$PROJECT_DIR$/src/Mutation/NetMutationTypes/NewNode.java" />
+        <option value="$PROJECT_DIR$/src/Network/ConnectionGene.java" />
+        <option value="$PROJECT_DIR$/src/Mutation/Mutator.java" />
+        <option value="$PROJECT_DIR$/Tests/Mutation/MutatorTest.java" />
+        <option value="$PROJECT_DIR$/src/Population.java" />
       </list>
     </option>
   </component>
@@ -186,42 +226,46 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="NEAT_Test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NEAT_Test" type="462c0819:PsiDirectoryNode" />
+              <item name="Rockwell" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Rockwell" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="NEAT_Test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NEAT_Test" type="462c0819:PsiDirectoryNode" />
+              <item name="Rockwell" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Rockwell" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="NEAT_Test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NEAT_Test" type="462c0819:PsiDirectoryNode" />
+              <item name="Rockwell" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Rockwell" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Mutation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="NEAT_Test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NEAT_Test" type="462c0819:PsiDirectoryNode" />
+              <item name="Rockwell" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Rockwell" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Network" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="NEAT_Test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NEAT_Test" type="462c0819:PsiDirectoryNode" />
+              <item name="Rockwell" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Rockwell" type="462c0819:PsiDirectoryNode" />
               <item name="Tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Rockwell" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -230,13 +274,21 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Mutation" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="Network" />
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Genome" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -251,7 +303,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GenomeMutatorTest">
+  <component name="RunManager" selected="JUnit.MutatorTest.testNewNode">
     <configuration name="GenomeMutatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="NEAT" />
@@ -292,26 +344,6 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="GenomeMutatorTest.newNodeBasicEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="NEAT" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GenomeMutatorTest" />
-      <option name="METHOD_NAME" value="newNodeBasicEquals" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
     <configuration name="GenomeMutatorTest.newNodeBasicEqualsWithNoInnovNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="NEAT" />
@@ -332,14 +364,39 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="GenomeTest.innovationNumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GenomeMutatorTest.testParams" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="NEAT" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GenomeTest" />
-      <option name="METHOD_NAME" value="innovationNumberTest" />
+      <option name="MAIN_CLASS_NAME" value="GenomeMutatorTest" />
+      <option name="METHOD_NAME" value="testParams" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="MutatorTest.testNewNode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Mutation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="NEAT" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="Mutation" />
+      <option name="MAIN_CLASS_NAME" value="Mutation.MutatorTest" />
+      <option name="METHOD_NAME" value="testNewNode" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -530,21 +587,26 @@
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.GenomeTest.innovationNumberTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest.newNodeBasicEquals" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest.newNodeBasicEqualsWithNoInnovNumber" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest.assertBetwenSubClasses" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest.newNodeBasicEqualsWithNoInnovNumber" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest.assertBetwenSubClasses" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest.testParams" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.MutatorTest.testNewNode" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest.assertBetwenSubClasses" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest.newNodeBasicEqualsWithNoInnovNumber" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest.newNodeBasicEquals" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.GenomeTest.innovationNumberTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.MutatorTest.testNewNode" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest.testParams" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest.assertBetwenSubClasses" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.GenomeMutatorTest.newNodeBasicEqualsWithNoInnovNumber" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -568,16 +630,7 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GenomeMutatorTest - 2017.12.16 at 20h 16m 05s.xml">
-      <configuration name="GenomeMutatorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GenomeMutatorTest - 2017.12.16 at 20h 17m 17s.xml">
-      <configuration name="GenomeMutatorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GenomeMutatorTest - 2017.12.16 at 20h 21m 31s.xml">
-      <configuration name="GenomeMutatorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GenomeMutatorTest - 2017.12.16 at 20h 38m 32s.xml">
+    <history-entry file="GenomeMutatorTest - 2018.01.20 at 11h 21m 39s.xml">
       <configuration name="GenomeMutatorTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="GenomeMutatorTest_assertBetwenSubClasses - 2017.12.16 at 20h 17m 07s.xml">
@@ -598,6 +651,15 @@
     <history-entry file="GenomeMutatorTest_newNodeBasicEqualsWithNoInnovNumber - 2017.12.16 at 20h 15m 58s.xml">
       <configuration name="GenomeMutatorTest.newNodeBasicEqualsWithNoInnovNumber" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="GenomeMutatorTest_testParams - 2018.01.20 at 11h 42m 59s.xml">
+      <configuration name="GenomeMutatorTest.testParams" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GenomeMutatorTest_testParams - 2018.01.20 at 11h 43m 15s.xml">
+      <configuration name="GenomeMutatorTest.testParams" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GenomeMutatorTest_testParams - 2018.01.20 at 11h 43m 45s.xml">
+      <configuration name="GenomeMutatorTest.testParams" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -605,7 +667,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -616,7 +678,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20095949" sideWeight="0.49565217" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20309168" sideWeight="0.49565217" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -677,62 +739,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Population.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/GenomeMutatorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mutation/GenomeMutator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1934#1935#0" expanded="true" />
-            <element signature="e#2158#2159#0" expanded="false" />
-            <element signature="e#3176#3177#0" expanded="true" />
-            <element signature="e#3264#3265#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Network/Genome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="126" column="0" lean-forward="true" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
-          <folding>
-            <element signature="method#Genome#0;class#Genome#0" expanded="false" />
-            <element signature="method#initConnections#0;class#Genome#0" expanded="false" />
-            <element signature="method#getOutput#0;class#Genome#0" expanded="false" />
-            <element signature="method#getNodeOutput#0;class#Genome#0" expanded="false" />
-            <element signature="method#isOutputID#0;class#Genome#0" expanded="false" />
-            <element signature="method#getConnectionWeight#0;class#Genome#0" expanded="false" />
-            <element signature="method#assignNewConnectionWeight#0;class#Genome#0" expanded="false" />
-            <element signature="method#addNode#0;class#Genome#0" expanded="false" />
-            <element signature="method#disableConnectionGene#0;class#Genome#0" expanded="false" />
-            <element signature="method#findConnection#0;class#Genome#0" expanded="false" />
-            <element signature="method#addConnectionGene#0;class#Genome#0" expanded="false" />
-            <element signature="method#getInputNodeIDs#0;class#Genome#0" expanded="false" />
-            <element signature="method#getOutputNodeIDs#0;class#Genome#0" expanded="false" />
-            <element signature="method#getHiddenNodeIDs#0;class#Genome#0" expanded="false" />
-            <element signature="method#getHighestInnovationNumber#0;class#Genome#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Network/ConnectionGene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -747,7 +753,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/GenomeTest.java">
+    <entry file="file://$PROJECT_DIR$/Tests/Network/GenomeTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
@@ -758,9 +764,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -784,13 +788,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2397">
           <caret line="141" column="0" lean-forward="true" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1934#1935#0" expanded="true" />
-            <element signature="e#2158#2159#0" expanded="false" />
-            <element signature="e#3176#3177#0" expanded="true" />
-            <element signature="e#3264#3265#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -825,7 +823,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/GenomeTest.java">
+    <entry file="file://$PROJECT_DIR$/Tests/Network/GenomeTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
@@ -844,9 +842,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -888,7 +884,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/GenomeTest.java">
+    <entry file="file://$PROJECT_DIR$/Tests/Network/GenomeTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
@@ -907,13 +903,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1934#1935#0" expanded="true" />
-            <element signature="e#2158#2159#0" expanded="false" />
-            <element signature="e#3176#3177#0" expanded="true" />
-            <element signature="e#3264#3265#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -955,7 +945,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/GenomeTest.java">
+    <entry file="file://$PROJECT_DIR$/Tests/Network/GenomeTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
@@ -974,13 +964,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1934#1935#0" expanded="true" />
-            <element signature="e#2158#2159#0" expanded="false" />
-            <element signature="e#3176#3177#0" expanded="true" />
-            <element signature="e#3264#3265#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1010,13 +994,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1934#1935#0" expanded="true" />
-            <element signature="e#2158#2159#0" expanded="false" />
-            <element signature="e#3176#3177#0" expanded="true" />
-            <element signature="e#3264#3265#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1031,13 +1009,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Mutation.java" />
     <entry file="file://$PROJECT_DIR$/src/AI_Task.java" />
-    <entry file="file://$PROJECT_DIR$/Tests/NEAT_PopulationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="77" lean-forward="true" selection-start-line="15" selection-start-column="77" selection-end-line="15" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GenomeCrossoverFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1045,73 +1016,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PopulationParams.java">
+    <entry file="file://$PROJECT_DIR$/Tests/NEAT_PopulationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="15" column="77" lean-forward="true" selection-start-line="15" selection-start-column="77" selection-end-line="15" selection-end-column="77" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Population.java">
+    <entry file="file://$PROJECT_DIR$/src/PopulationParams.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="33" column="24" lean-forward="false" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+        <state relative-caret-position="272">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/Network/GenomeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WorkLog.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Mutation/MutationTypes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Mutation/MutateWeight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Mutation/MutatorParams.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="459">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/GenomeTest.java">
+    <entry file="file://$PROJECT_DIR$/src/Mutation/GenomeMutator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="708">
-          <caret line="59" column="22" lean-forward="false" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+        <state relative-caret-position="-532">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mutation/NewConnection.java">
+    <entry file="file://$PROJECT_DIR$/src/Mutation/NetMutationTypes/NewConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-          <folding>
-            <element signature="e#155#156#0" expanded="true" />
-            <element signature="e#203#204#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mutation/NetworkMutation.java">
+    <entry file="file://$PROJECT_DIR$/src/Mutation/NetMutationTypes/NewNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1232#1241#0" expanded="true" />
-            <element signature="e#1298#1307#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Mutation/NetMutationTypes/NetworkMutation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/GenomeMutatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="906">
-          <caret line="75" column="30" lean-forward="false" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mutation/NewNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="44" />
+        <state relative-caret-position="-889">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1140,34 +1136,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mutation/MutateWeight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="e#154#155#0" expanded="true" />
-            <element signature="e#202#203#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Network/ConnectionGene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="408">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="e#325#326#0" expanded="true" />
+            <element signature="e#370#371#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mutation/GenomeMutator.java">
+    <entry file="file://$PROJECT_DIR$/src/Mutation/Mutator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+        <state relative-caret-position="148">
+          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3072#3073#0" expanded="true" />
-            <element signature="e#3135#3136#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/Mutation/MutatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Population.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1200,6 +1204,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>scala-sdk-2.10.6</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
