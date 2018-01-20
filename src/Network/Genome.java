@@ -157,6 +157,11 @@ public class Genome {
         this.fitness = fitness;
     }
 
+    @Override
+    public String toString(){
+        return "Genome, Nr or inputs: " + nrOfInputs + ", Nr of outputs: "+ nrOfOutputs + ", Nr of hidden nodes: "+ hiddenNodeIDs.size();
+    }
+
     public static double transferFunction(double x){
         return 1/(1+Math.exp(-4.6 * x));
     }

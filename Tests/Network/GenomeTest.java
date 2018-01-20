@@ -1,6 +1,5 @@
 package Network;
 
-import Network.Genome;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,6 +8,58 @@ import static org.junit.jupiter.api.Assertions.*;
  * Created by elias on 2017-05-19.
  */
 class GenomeTest {
+
+    @Test
+    void equalsTest1(){
+        Genome g1 = new Genome(4,2);
+        Genome g2 = new Genome(4,2);
+        assertEquals(g1,g2);
+    }
+
+    @Test
+    void equalsTest2(){
+        Genome g1 = new Genome(2,1);
+        int nodeId = g1.addNode();
+        g1.addConnectionGene(0,nodeId,5,1);
+        g1.addConnectionGene(nodeId,2,6,1);
+
+        Genome g2 = new Genome(2,1);
+        nodeId = g2.addNode();
+        g2.addConnectionGene(0,nodeId,5,1);
+        g2.addConnectionGene(nodeId,2,6,1);
+
+        assertEquals(g1,g2);
+    }
+
+    @Test
+    void equalsTest3(){
+        Genome g1 = new Genome(2,1);
+        int nodeId = g1.addNode();
+        g1.addConnectionGene(0,nodeId,5,2);
+        g1.addConnectionGene(nodeId,2,6,1);
+
+        Genome g2 = new Genome(2,1);
+        nodeId = g2.addNode();
+        g2.addConnectionGene(0,nodeId,5,1);
+        g2.addConnectionGene(nodeId,2,6,1);
+
+        assertNotEquals(g1,g2);
+    }
+
+    @Test
+    void equalsTest4(){
+        Genome g1 = new Genome(2,1);
+        int nodeId = g1.addNode();
+        g1.addConnectionGene(0,nodeId,5,1);
+        g1.addConnectionGene(nodeId,2,7,1);
+
+        Genome g2 = new Genome(2,1);
+        nodeId = g2.addNode();
+        g2.addConnectionGene(0,nodeId,5,1);
+        g2.addConnectionGene(nodeId,2,6,1);
+
+        assertNotEquals(g1,g2);
+    }
 
     @Test
     void creationTest(){
