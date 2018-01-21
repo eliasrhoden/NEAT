@@ -5,4 +5,4 @@ New name on project, "Rockwell".
 Need to complete the 'MutatorTest' before starting to implement the newly tested functions.
 
 2018-01-21
-
+Make the tests for 'Mutator' to pass. (May also need to write more tests for 'Mutator')

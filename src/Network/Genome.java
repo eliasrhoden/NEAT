@@ -178,8 +178,8 @@ public class Genome {
         if(!sameNrOfNodes(this,other))
             return false;
 
-        List<ConnectionGene> myEnabledGenes = getEnabledGenes(connectionGenes);
-        List<ConnectionGene> otherEnabledGenes = getEnabledGenes(other.connectionGenes);
+        List<ConnectionGene> myEnabledGenes = this.getEnabledGenes();
+        List<ConnectionGene> otherEnabledGenes = other.getEnabledGenes();
 
         if(myEnabledGenes.size() != otherEnabledGenes.size())
             return false;
@@ -193,8 +193,8 @@ public class Genome {
 
         return true;
     }
-    private static List<ConnectionGene> getEnabledGenes(List<ConnectionGene> genes){
-        List<ConnectionGene> res = new ArrayList<>(genes);
+    public List<ConnectionGene> getEnabledGenes(){
+        List<ConnectionGene> res = new ArrayList<>(connectionGenes);
         for(ConnectionGene g:res){
             if(!g.enabled)
                 res.remove(g);

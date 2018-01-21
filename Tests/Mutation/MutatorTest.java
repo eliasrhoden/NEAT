@@ -69,7 +69,7 @@ class MutatorTest {
         List<ConnectionGene> g1Genes = g1.getConnectionGenes();
         List<ConnectionGene> g2Genes = g2.getConnectionGenes();
         assertEquals(g2Genes.size(),g1Genes.size());
-        assertTrue(g1Genes.size() != 1);
+        assertTrue(m.getInnovationCounter() == 2);
         for(int i = 0;i<g1Genes.size();i++){
             int inov1 = g1Genes.get(i).innovationNumber;
             int inov2 = g2Genes.get(i).innovationNumber;
