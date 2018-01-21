@@ -23,14 +23,15 @@ public class ConnectionGene {
         this.innovationNumber = innovationNumber;
     }
 
-    public boolean equals(ConnectionGene gene){
-        boolean res = true;
-        res = res && this.weight == gene.weight;
-        res = res && this.outputNode == gene.outputNode;
-        res = res && this.inputNode == gene.inputNode;
-        res = res && this.enabled == gene.enabled;
-        res = res && this.innovationNumber == gene.innovationNumber;
-        return res;
+    public boolean equals(Object obj){
+        if(obj instanceof ConnectionGene) {
+            ConnectionGene gene = (ConnectionGene) obj;
+            boolean res = true;
+            res = res && this.outputNode == gene.outputNode;
+            res = res && this.inputNode == gene.inputNode;
+            return res;
+        }
+        return false;
     }
 
 }

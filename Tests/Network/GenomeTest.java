@@ -43,7 +43,7 @@ class GenomeTest {
         g2.addConnectionGene(0,nodeId,5,1);
         g2.addConnectionGene(nodeId,2,6,1);
 
-        assertNotEquals(g1,g2);
+        assertEquals(g1,g2);
     }
 
     @Test
@@ -58,7 +58,7 @@ class GenomeTest {
         g2.addConnectionGene(0,nodeId,5,1);
         g2.addConnectionGene(nodeId,2,6,1);
 
-        assertNotEquals(g1,g2);
+        assertEquals(g1,g2);
     }
 
     @Test

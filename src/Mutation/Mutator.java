@@ -17,8 +17,12 @@ public class Mutator {
 
     public Mutator(MutatorParams params){this.params = params;}
 
-    public void muateGenome(Genome g){
+    public void mutateGenome(Genome g){
         //TODO
+    }
+
+    public int getInnovationCounter(){
+        return innovationCounter;
     }
 
     private class Mutation{

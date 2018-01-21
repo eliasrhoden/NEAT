@@ -2,4 +2,7 @@ Worklog Rokwell
 
 2018-01-20
 New name on project, "Rockwell".
+Need to complete the 'MutatorTest' before starting to implement the newly tested functions.
+
+2018-01-21
 

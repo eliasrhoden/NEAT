@@ -1,7 +1,9 @@
 package Network;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by elias on 2017-05-12.
@@ -160,6 +162,50 @@ public class Genome {
     @Override
     public String toString(){
         return "Genome, Nr or inputs: " + nrOfInputs + ", Nr of outputs: "+ nrOfOutputs + ", Nr of hidden nodes: "+ hiddenNodeIDs.size();
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(!(obj instanceof Genome)){
+            return false;
+        }
+        Genome other = (Genome) obj;
+
+        if(other.nrOfOutputs != nrOfOutputs ||
+                other.nrOfInputs != nrOfInputs ||
+                other.hiddenNodeIDs.size() != hiddenNodeIDs.size())
+            return false;
+        if(!sameNrOfNodes(this,other))
+            return false;
+
+        List<ConnectionGene> myEnabledGenes = getEnabledGenes(connectionGenes);
+        List<ConnectionGene> otherEnabledGenes = getEnabledGenes(other.connectionGenes);
+
+        if(myEnabledGenes.size() != otherEnabledGenes.size())
+            return false;
+
+        for(int i = 0;i<myEnabledGenes.size();i++){
+            ConnectionGene my = myEnabledGenes.get(i);
+            ConnectionGene oth = otherEnabledGenes.get(i);
+            if(!my.equals(oth))
+                return false;
+        }
+
+        return true;
+    }
+    private static List<ConnectionGene> getEnabledGenes(List<ConnectionGene> genes){
+        List<ConnectionGene> res = new ArrayList<>(genes);
+        for(ConnectionGene g:res){
+            if(!g.enabled)
+                res.remove(g);
+        }
+        return res;
+    }
+
+    private static boolean sameNrOfNodes(Genome me, Genome other){
+        return other.nrOfInputs == me.nrOfInputs &&
+                other.nrOfOutputs == me.nrOfOutputs &&
+                other.hiddenNodeIDs.size() == me.hiddenNodeIDs.size();
     }
 
     public static double transferFunction(double x){

@@ -18,14 +18,14 @@ class ConnectionGeneTest {
         ConnectionGene c1 = new ConnectionGene(1,2,1);
         ConnectionGene c3 = new ConnectionGene(1,2,1);
         c3.weight = 0.5;
-        assertNotEquals(c1,c3);
+        assertEquals(c1,c3);
     }
 
     @Test
     void equals3(){
         ConnectionGene c1 = new ConnectionGene(1,2,1);
         ConnectionGene c4 = new ConnectionGene(1,2,5);
-        assertNotEquals(c1,c4);
+        assertEquals(c1,c4);
     }
 
 }
