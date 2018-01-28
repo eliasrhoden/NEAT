@@ -232,7 +232,7 @@ public class Genome {
 
         return true;
     }
-    
+
     public List<ConnectionGene> getEnabledGenes(){
         List<ConnectionGene> res = new ArrayList<>(connectionGenes);
         for(ConnectionGene g:res){

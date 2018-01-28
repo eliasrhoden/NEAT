@@ -69,6 +69,14 @@ class GenomeTest {
     }
 
     @Test
+    void equals5(){
+        Genome g1 = new Genome(1,1);
+        Genome g2 = new Genome(1,1);
+        g2.removeConnectionGene(0,1);
+        assertNotEquals(g1,g2);
+    }
+
+    @Test
     void mutability(){
         Genome g1 = new Genome(2,1);
         g1.getConnectionGenes().remove(0);

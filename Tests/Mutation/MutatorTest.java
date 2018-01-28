@@ -31,24 +31,18 @@ class MutatorTest {
 
     @Test
     void testNewConnection(){
-        Genome g1 = new Genome(2,1);
-        Genome g2 = new Genome(2,1);
-        int hidden1 = g1.addNode();
-        int hidden2 = g2.addNode();
+        Genome g1 = new Genome(1,1);
+        Genome g2 = new Genome(1,1);
 
-        g1.addConnectionGene(0,hidden1,5,1);
-        g1.addConnectionGene(hidden1,2,6,1);
-        g2.addConnectionGene(0,hidden2,5,1);
-        g2.addConnectionGene(hidden1,2,6,1);
-
-        g2.addConnectionGene(1,hidden1,7,1);
+        g1.removeConnectionGene(0,1);
 
         MutatorParams params = new MutatorParams();
         params.PROBABILITY_OF_NEW_CONNECTION = 1;
         Mutator m = new Mutator(params);
 
         m.mutateGenome(g1);
-
+        System.out.println(g1.getConnectionGenes());
+        System.out.println(g2.getConnectionGenes());
         assertEquals(g2,g1);
     }
 
