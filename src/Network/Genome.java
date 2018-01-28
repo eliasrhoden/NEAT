@@ -202,19 +202,19 @@ public class Genome {
 
     @Override
     public boolean equals(Object obj){
+
+        if(this == obj)
+            return true;
+
         if(!(obj instanceof Genome)){
             return false;
         }
-        Genome other = (Genome) obj;
 
-        if( other == obj)
-            return true;
+        Genome other = (Genome) obj;
 
         if(other.nrOfOutputs != nrOfOutputs ||
                 other.nrOfInputs != nrOfInputs ||
                 other.hiddenNodeIDs.size() != hiddenNodeIDs.size())
-            return false;
-        if(!sameNrOfNodes(this,other))
             return false;
 
         List<ConnectionGene> myEnabledGenes = this.getEnabledGenes();
@@ -235,17 +235,11 @@ public class Genome {
 
     public List<ConnectionGene> getEnabledGenes(){
         List<ConnectionGene> res = new ArrayList<>(connectionGenes);
-        for(ConnectionGene g:res){
+        for(ConnectionGene g:new ArrayList<>(res)){
             if(!g.enabled)
                 res.remove(g);
         }
         return res;
-    }
-
-    private static boolean sameNrOfNodes(Genome me, Genome other){
-        return other.nrOfInputs == me.nrOfInputs &&
-                other.nrOfOutputs == me.nrOfOutputs &&
-                other.hiddenNodeIDs.size() == me.hiddenNodeIDs.size();
     }
 
     public static double transferFunction(double x){

@@ -10,3 +10,4 @@ Make the tests for 'Mutator' to pass. (May also need to write more tests for 'Mu
 2018-01-28
 Added new function to genome, getNodeSUpplyers, needed later to avoid create loop-conection genes during mutation.
 Mutator is gonna need some refractoring/Clean-up, can tell that duplicated code is coming up...
+The mutator tests may need to be looked-over, but should be ok. Ready to implemetn the LAST PARTS OF MUTATOR½!!

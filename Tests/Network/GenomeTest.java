@@ -65,7 +65,7 @@ class GenomeTest {
         g2.addConnectionGene(0,nodeId,5,1);
         g2.addConnectionGene(nodeId,2,6,1);
 
-        assertEquals(g1,g2);
+        assertNotEquals(g1,g2);
     }
 
     @Test
@@ -135,6 +135,8 @@ class GenomeTest {
         assertEquals(9,swag[1]);
         assertEquals(10,swag[2]);
     }
+
+
 
     @Test
     void innovationNumberTest(){
