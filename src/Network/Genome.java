@@ -1,9 +1,7 @@
 package Network;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by elias on 2017-05-12.
@@ -145,6 +143,33 @@ public class Genome {
             }
         }
         return highestInnNumber;
+    }
+
+    public int[] getSuppyingNodesToNode(int nodeId){
+
+        Set<Integer> set =  new HashSet<Integer>();
+
+        supplyingNodes(nodeId,set);
+        set.remove(nodeId);
+
+        Integer[] res = set.toArray(new Integer[set.size()]);
+        int[] result = new int[res.length];
+        for(int i = 0;i<res.length;i++)
+            result[i] = res[i];
+
+        return result;
+    }
+
+    private void supplyingNodes(int nodeId, Set<Integer> nodesVisited){
+        if(nodesVisited.contains(nodeId))
+            return;
+        else
+            nodesVisited.add(nodeId);
+
+        for(ConnectionGene connectionGene:getConnectionGenes()){
+            if(connectionGene.outputNode == nodeId)
+                supplyingNodes(connectionGene.inputNode,nodesVisited);
+        }
     }
 
     public ArrayList<ConnectionGene> getConnectionGenes() {

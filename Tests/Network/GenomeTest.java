@@ -2,6 +2,11 @@ package Network;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -184,5 +189,54 @@ class GenomeTest {
         assertEquals((int)(Genome.transferFunction(-0.2) * 100),28);
     }
 
+    @Test
+    void nodeSupplyersSimple(){
+        Genome g = new Genome(4,2);
+
+        int[] expected = {0,1,2,3};
+
+        int[] result = g.getSuppyingNodesToNode(4);
+        assertArrayEquals(expected,result);
+    }
+
+    @Test
+    void nodeSupplyersHard(){
+        Genome g = new Genome(2,1);
+
+        /**
+         *
+         * OI \
+         *      \        OU
+         * OI -> O -> O /
+         * */
+
+
+        int nID1 = g.addNode();
+        int nID2 = g.addNode();
+
+        g.disableConnectionGene(1,2);
+        g.disableConnectionGene(0,2);
+
+        g.addConnectionGene(0,nID1,10,0.7);
+        g.addConnectionGene(1,nID1,10,0.7);
+
+        g.addConnectionGene(nID1,nID2,12,0.1);
+
+        g.addConnectionGene(nID2,2,13,0.5);
+
+        int[] expected = {nID1,0,1};
+
+        Set<Integer> result = setFromArray(g.getSuppyingNodesToNode(nID2));
+
+        assertEquals(expected.length,result.size());
+        assertTrue(result.containsAll(setFromArray(expected)));
+    }
+
+    private Set<Integer> setFromArray(int[] arr){
+        Set<Integer> res = new HashSet<>();
+        for(int i : arr)
+            res.add(i);
+        return res;
+    }
 
 }
