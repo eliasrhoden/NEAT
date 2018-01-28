@@ -5,6 +5,7 @@ import Network.Genome;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -34,6 +35,7 @@ class MutatorTest {
         Genome g2 = new Genome(2,1);
         int hidden1 = g1.addNode();
         int hidden2 = g2.addNode();
+
         g1.addConnectionGene(0,hidden1,5,1);
         g1.addConnectionGene(hidden1,2,6,1);
         g2.addConnectionGene(0,hidden2,5,1);
@@ -76,8 +78,6 @@ class MutatorTest {
             assertEquals(inov1,inov2);
         }
     }
-
-
 
 
 }

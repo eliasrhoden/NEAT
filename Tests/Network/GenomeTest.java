@@ -36,6 +36,8 @@ class GenomeTest {
         assertEquals(g1,g2);
     }
 
+
+
     @Test
     void equalsTest3(){
         Genome g1 = new Genome(2,1);
@@ -64,6 +66,21 @@ class GenomeTest {
         g2.addConnectionGene(nodeId,2,6,1);
 
         assertEquals(g1,g2);
+    }
+
+    @Test
+    void mutability(){
+        Genome g1 = new Genome(2,1);
+        g1.getConnectionGenes().remove(0);
+        assertEquals(2,g1.getConnectionGenes().size());
+    }
+
+    @Test
+    void removeGene(){
+        Genome g1 = new Genome(2,1);
+        g1.removeConnectionGene(0,2);
+        g1.removeConnectionGene(1,2);
+        assertEquals(0,g1.getConnectionGenes().size());
     }
 
     @Test

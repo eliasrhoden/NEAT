@@ -25,7 +25,7 @@ class ConnectionGeneTest {
     void equals3(){
         ConnectionGene c1 = new ConnectionGene(1,2,1);
         ConnectionGene c4 = new ConnectionGene(1,2,5);
-        assertEquals(c1,c4);
+        assertNotEquals(c1,c4);
     }
 
 }

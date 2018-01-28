@@ -111,6 +111,17 @@ public class Genome {
         connectionGenes.add(toAdd);
     }
 
+    public boolean removeConnectionGene(int input,int output){
+        boolean removed = false;
+        for(ConnectionGene cg: new ArrayList<>(connectionGenes)){
+            if(cg.inputNode == input && cg.outputNode == output) {
+                connectionGenes.remove(cg);
+                removed = true;
+            }
+        }
+        return removed;
+    }
+
     public int[] getInputNodeIDs(){
         int[] res = new int[nrOfInputs];
         for(int i = 0;i<nrOfInputs;i++){
@@ -173,7 +184,7 @@ public class Genome {
     }
 
     public ArrayList<ConnectionGene> getConnectionGenes() {
-        return connectionGenes;
+        return new ArrayList<>(connectionGenes);
     }
 
     public int getFitness() {
@@ -195,6 +206,9 @@ public class Genome {
             return false;
         }
         Genome other = (Genome) obj;
+
+        if( other == obj)
+            return true;
 
         if(other.nrOfOutputs != nrOfOutputs ||
                 other.nrOfInputs != nrOfInputs ||
@@ -218,6 +232,7 @@ public class Genome {
 
         return true;
     }
+    
     public List<ConnectionGene> getEnabledGenes(){
         List<ConnectionGene> res = new ArrayList<>(connectionGenes);
         for(ConnectionGene g:res){

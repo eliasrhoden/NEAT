@@ -29,6 +29,7 @@ public class ConnectionGene {
             boolean res = true;
             res = res && this.outputNode == gene.outputNode;
             res = res && this.inputNode == gene.inputNode;
+            res = res && this.innovationNumber == gene.innovationNumber;
             return res;
         }
         return false;

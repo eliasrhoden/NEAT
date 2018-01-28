@@ -3,6 +3,7 @@ package Mutation;
 import Network.ConnectionGene;
 import Network.Genome;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -24,8 +25,13 @@ public class Mutator {
     private List<Mutation> mutationMemory;
     private int innovationCounter;
     private MutatorParams params;
+    private Random random;
 
-    public Mutator(MutatorParams params){this.params = params;}
+    public Mutator(MutatorParams params){
+        this.params = params;
+        random = new Random();
+        mutationMemory = new ArrayList<Mutation>();
+    }
 
     public void mutateGenome(Genome g){
         innovationCounter = g.getHighestInnovationNumber();
@@ -58,18 +64,19 @@ public class Mutator {
         int leadIn_innovationNr = getInnovationNrForNewConnection(inp,nodeId);
         int leadOut_innovationNr = getInnovationNrForNewConnection(nodeId,out);
         g.addConnectionGene(inp,nodeId,leadIn_innovationNr,1);
+        Mutation intoNode = new Mutation(inp,nodeId,leadIn_innovationNr);
+        addToMemoryIfNeeded(intoNode);
         g.addConnectionGene(nodeId,out,leadOut_innovationNr,connection.weight);
+        Mutation outOfNode = new Mutation(nodeId,out,leadOut_innovationNr);
+        addToMemoryIfNeeded(outOfNode);
     }
 
     public boolean shouldAddNode(){
-        //TODO
-
-        return false;
+        return random.nextDouble() <= params.PROBABILITY_OF_NEW_NODE;
     }
 
     public boolean shouldAddConnection(){
-        //TODO
-        return false;
+        return random.nextDouble() <= params.PROBABILITY_OF_NEW_CONNECTION;
     }
 
     public boolean shouldMutateWeights(){
@@ -104,12 +111,36 @@ public class Mutator {
         return innovationCounter;
     }
 
+    private boolean addToMemoryIfNeeded(Mutation mutation){
+        if(mutationMemory.contains(mutation))
+            return false;
+        else{
+            mutationMemory.add(mutation);
+            return true;
+        }
+    }
+
     private class Mutation{
-        public ConnectionGene connectionGene;
+        private int input;
+        private int output;
         public int innovationNr;
-        public Mutation(ConnectionGene connectionGene,int innovationNr){
-            this.connectionGene = connectionGene;
+        public Mutation(int input, int output,int innovationNr){
+            this.input = input;
+            this.output = output;
             this.innovationNr = innovationNr;
+        }
+
+        @Override
+        public boolean equals(Object obj){
+            if(!(obj instanceof Mutation))
+                return false;
+            Mutation m = (Mutation) obj;
+
+            if(m.input != input)
+                return false;
+            if(m.output != output)
+                return false;
+            return true;
         }
     }
 }
