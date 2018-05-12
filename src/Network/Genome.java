@@ -156,7 +156,7 @@ public class Genome {
         return highestInnNumber;
     }
 
-    public int[] getSuppyingNodesToNode(int nodeId){
+    public int[] getSupplyingNodesToNode(int nodeId){
 
         Set<Integer> set =  new HashSet<Integer>();
 

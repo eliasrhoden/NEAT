@@ -26,6 +26,8 @@ public class Mutator {
     private int innovationCounter;
     private MutatorParams params;
     private Random random;
+    private final int NR_OF_TRIES_TO_FIND_NODES = 5;
+
 
     public Mutator(MutatorParams params){
         this.params = params;
@@ -34,13 +36,12 @@ public class Mutator {
     }
 
     public void mutateGenome(Genome g){
-        innovationCounter = g.getHighestInnovationNumber();
 
         if(shouldAddNode()){
             addNode(g);
         }
         if(shouldAddConnection()){
-            //TODO
+            AddConnection();
         }
         if(shouldMutateWeights()){
             //TODO
@@ -53,8 +54,13 @@ public class Mutator {
         }
     }
 
+    private void AddConnection() {
+
+
+    }
+
     private void addNode(Genome g) {
-        ConnectionGene connection = getRandomEnabledGene(g);
+        ConnectionGene connection = getRandomEnabledConnection(g);
         int inp = connection.inputNode;
         int out = connection.outputNode;
         connection.enabled = false;
@@ -80,26 +86,33 @@ public class Mutator {
     }
 
     public boolean shouldMutateWeights(){
-        //TODO
-        return false;
+        return random.nextDouble() <= params.PROBABILITY_OF_WEIGHT_MUTATION;
     }
 
     public boolean shouldDisableGene(){
-        //TODO
-        return false;
+        return random.nextDouble() <= params.PROBABILITY_OF_DISABLE_GENE;
     }
 
     public boolean shouldEnableGene(){
-        //TODO
-        return false;
+        return random.nextDouble() <= params.PROBABILITY_OF_RE_ENABLE_GENE;
     }
 
     private int getInnovationNrForNewConnection(int input, int output){
-        //TODO
-        return 0;
+        int resultNr = -1;
+        for(Mutation m:mutationMemory){
+            if(m.input == input && m.output == output){
+                resultNr = m.innovationNr;
+                break;
+            }
+        }
+        if(resultNr == -1){
+            innovationCounter++;
+            resultNr = innovationCounter;
+        }
+        return resultNr;
     }
 
-    private ConnectionGene getRandomEnabledGene(Genome g){
+    private ConnectionGene getRandomEnabledConnection(Genome g){
         List<ConnectionGene> enabledGenes = g. getEnabledGenes();
         int maxIndex = enabledGenes.size();
         Random r = new Random();

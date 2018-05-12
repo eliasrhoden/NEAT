@@ -2,8 +2,6 @@ package Network;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -222,7 +220,7 @@ class GenomeTest {
 
         int[] expected = {0,1,2,3};
 
-        int[] result = g.getSuppyingNodesToNode(4);
+        int[] result = g.getSupplyingNodesToNode(4);
         assertArrayEquals(expected,result);
     }
 
@@ -253,7 +251,7 @@ class GenomeTest {
 
         int[] expected = {nID1,0,1};
 
-        Set<Integer> result = setFromArray(g.getSuppyingNodesToNode(nID2));
+        Set<Integer> result = setFromArray(g.getSupplyingNodesToNode(nID2));
 
         assertEquals(expected.length,result.size());
         assertTrue(result.containsAll(setFromArray(expected)));
