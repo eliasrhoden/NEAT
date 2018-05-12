@@ -1,5 +1,9 @@
-import Network.Genome;
+package Network;
+
 import org.junit.jupiter.api.Test;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,6 +11,83 @@ import static org.junit.jupiter.api.Assertions.*;
  * Created by elias on 2017-05-19.
  */
 class GenomeTest {
+
+    @Test
+    void equalsTest1(){
+        Genome g1 = new Genome(4,2);
+        Genome g2 = new Genome(4,2);
+        assertEquals(g1,g2);
+    }
+
+    @Test
+    void equalsTest2(){
+        Genome g1 = new Genome(2,1);
+        int nodeId = g1.addNode();
+        g1.addConnectionGene(0,nodeId,5,1);
+        g1.addConnectionGene(nodeId,2,6,1);
+
+        Genome g2 = new Genome(2,1);
+        nodeId = g2.addNode();
+        g2.addConnectionGene(0,nodeId,5,1);
+        g2.addConnectionGene(nodeId,2,6,1);
+
+        assertEquals(g1,g2);
+    }
+
+
+
+    @Test
+    void equalsTest3(){
+        Genome g1 = new Genome(2,1);
+        int nodeId = g1.addNode();
+        g1.addConnectionGene(0,nodeId,5,2);
+        g1.addConnectionGene(nodeId,2,6,1);
+
+        Genome g2 = new Genome(2,1);
+        nodeId = g2.addNode();
+        g2.addConnectionGene(0,nodeId,5,1);
+        g2.addConnectionGene(nodeId,2,6,1);
+
+        assertEquals(g1,g2);
+    }
+
+    @Test
+    void equalsTest4(){
+        Genome g1 = new Genome(2,1);
+        int nodeId = g1.addNode();
+        g1.addConnectionGene(0,nodeId,5,1);
+        g1.addConnectionGene(nodeId,2,7,1);
+
+        Genome g2 = new Genome(2,1);
+        nodeId = g2.addNode();
+        g2.addConnectionGene(0,nodeId,5,1);
+        g2.addConnectionGene(nodeId,2,6,1);
+
+        assertNotEquals(g1,g2);
+    }
+
+    @Test
+    void equals5(){
+        Genome g1 = new Genome(1,1);
+        Genome g2 = new Genome(1,1);
+        g2.removeConnectionGene(0,1);
+        assertNotEquals(g1,g2);
+    }
+
+    @Test
+    void mutability(){
+        Genome g1 = new Genome(2,1);
+        g1.getConnectionGenes().remove(0);
+        assertEquals(2,g1.getConnectionGenes().size());
+    }
+
+    @Test
+    void removeGene(){
+        Genome g1 = new Genome(2,1);
+        g1.removeConnectionGene(0,2);
+        g1.removeConnectionGene(1,2);
+        assertEquals(0,g1.getConnectionGenes().size());
+    }
 
     @Test
     void creationTest(){
@@ -51,8 +132,9 @@ class GenomeTest {
         assertEquals(8,swag[0]);
         assertEquals(9,swag[1]);
         assertEquals(10,swag[2]);
-
     }
+
+
 
     @Test
     void innovationNumberTest(){
@@ -132,5 +214,54 @@ class GenomeTest {
         assertEquals((int)(Genome.transferFunction(-0.2) * 100),28);
     }
 
+    @Test
+    void nodeSupplyersSimple(){
+        Genome g = new Genome(4,2);
+
+        int[] expected = {0,1,2,3};
+
+        int[] result = g.getSupplyingNodesToNode(4);
+        assertArrayEquals(expected,result);
+    }
+
+    @Test
+    void nodeSupplyersHard(){
+        Genome g = new Genome(2,1);
+
+        /**
+         *
+         * OI \
+         *      \        OU
+         * OI -> O -> O /
+         * */
+
+
+        int nID1 = g.addNode();
+        int nID2 = g.addNode();
+
+        g.disableConnectionGene(1,2);
+        g.disableConnectionGene(0,2);
+
+        g.addConnectionGene(0,nID1,10,0.7);
+        g.addConnectionGene(1,nID1,10,0.7);
+
+        g.addConnectionGene(nID1,nID2,12,0.1);
+
+        g.addConnectionGene(nID2,2,13,0.5);
+
+        int[] expected = {nID1,0,1};
+
+        Set<Integer> result = setFromArray(g.getSupplyingNodesToNode(nID2));
+
+        assertEquals(expected.length,result.size());
+        assertTrue(result.containsAll(setFromArray(expected)));
+    }
+
+    private Set<Integer> setFromArray(int[] arr){
+        Set<Integer> res = new HashSet<>();
+        for(int i : arr)
+            res.add(i);
+        return res;
+    }
 
 }

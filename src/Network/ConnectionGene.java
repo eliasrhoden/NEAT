@@ -11,6 +11,10 @@ public class ConnectionGene {
     public int innovationNumber;
     public boolean enabled;
 
+    public ConnectionGene(int inputNode, int outputNode){
+        this(inputNode,outputNode,-1);
+    }
+
     public ConnectionGene(int inputNode, int outputNode,int innovationNumber){
         weight = 1;
         enabled = true;
@@ -19,14 +23,16 @@ public class ConnectionGene {
         this.innovationNumber = innovationNumber;
     }
 
-    public boolean equals(ConnectionGene gene){
-        boolean res = true;
-        res = res && this.weight == gene.weight;
-        res = res && this.outputNode == gene.outputNode;
-        res = res && this.inputNode == gene.inputNode;
-        res = res && this.enabled == gene.enabled;
-        res = res && this.innovationNumber == gene.innovationNumber;
-        return res;
+    public boolean equals(Object obj){
+        if(obj instanceof ConnectionGene) {
+            ConnectionGene gene = (ConnectionGene) obj;
+            boolean res = true;
+            res = res && this.outputNode == gene.outputNode;
+            res = res && this.inputNode == gene.inputNode;
+            res = res && this.innovationNumber == gene.innovationNumber;
+            return res;
+        }
+        return false;
     }
 
 }

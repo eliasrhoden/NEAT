@@ -10,7 +10,7 @@ public class PopulationParams {
     //Population limits
     public int POPULATION_SIZE;
 
-    //Constants fro measuring capability
+    //Constants to classify spieces
     public double C1;
     public double C2;
     public double C3;

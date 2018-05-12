@@ -1,7 +1,7 @@
 package Network;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+
+import java.util.*;
 
 /**
  * Created by elias on 2017-05-12.
@@ -111,6 +111,17 @@ public class Genome {
         connectionGenes.add(toAdd);
     }
 
+    public boolean removeConnectionGene(int input,int output){
+        boolean removed = false;
+        for(ConnectionGene cg: new ArrayList<>(connectionGenes)){
+            if(cg.inputNode == input && cg.outputNode == output) {
+                connectionGenes.remove(cg);
+                removed = true;
+            }
+        }
+        return removed;
+    }
+
     public int[] getInputNodeIDs(){
         int[] res = new int[nrOfInputs];
         for(int i = 0;i<nrOfInputs;i++){
@@ -145,8 +156,35 @@ public class Genome {
         return highestInnNumber;
     }
 
+    public int[] getSupplyingNodesToNode(int nodeId){
+
+        Set<Integer> set =  new HashSet<Integer>();
+
+        supplyingNodes(nodeId,set);
+        set.remove(nodeId);
+
+        Integer[] res = set.toArray(new Integer[set.size()]);
+        int[] result = new int[res.length];
+        for(int i = 0;i<res.length;i++)
+            result[i] = res[i];
+
+        return result;
+    }
+
+    private void supplyingNodes(int nodeId, Set<Integer> nodesVisited){
+        if(nodesVisited.contains(nodeId))
+            return;
+        else
+            nodesVisited.add(nodeId);
+
+        for(ConnectionGene connectionGene:getConnectionGenes()){
+            if(connectionGene.outputNode == nodeId)
+                supplyingNodes(connectionGene.inputNode,nodesVisited);
+        }
+    }
+
     public ArrayList<ConnectionGene> getConnectionGenes() {
-        return connectionGenes;
+        return new ArrayList<>(connectionGenes);
     }
 
     public int getFitness() {
@@ -155,6 +193,53 @@ public class Genome {
 
     public void setFitness(int fitness) {
         this.fitness = fitness;
+    }
+
+    @Override
+    public String toString(){
+        return "Genome, Nr or inputs: " + nrOfInputs + ", Nr of outputs: "+ nrOfOutputs + ", Nr of hidden nodes: "+ hiddenNodeIDs.size();
+    }
+
+    @Override
+    public boolean equals(Object obj){
+
+        if(this == obj)
+            return true;
+
+        if(!(obj instanceof Genome)){
+            return false;
+        }
+
+        Genome other = (Genome) obj;
+
+        if(other.nrOfOutputs != nrOfOutputs ||
+                other.nrOfInputs != nrOfInputs ||
+                other.hiddenNodeIDs.size() != hiddenNodeIDs.size())
+            return false;
+
+        List<ConnectionGene> myEnabledGenes = this.getEnabledGenes();
+        List<ConnectionGene> otherEnabledGenes = other.getEnabledGenes();
+
+        if(myEnabledGenes.size() != otherEnabledGenes.size())
+            return false;
+
+        for(int i = 0;i<myEnabledGenes.size();i++){
+            ConnectionGene my = myEnabledGenes.get(i);
+            ConnectionGene oth = otherEnabledGenes.get(i);
+            if(!my.equals(oth))
+                return false;
+        }
+
+        return true;
+    }
+
+    public List<ConnectionGene> getEnabledGenes(){
+        List<ConnectionGene> res = new ArrayList<>(connectionGenes);
+        for(ConnectionGene g:new ArrayList<>(res)){
+            if(!g.enabled)
+                res.remove(g);
+        }
+        return res;
     }
 
     public static double transferFunction(double x){
