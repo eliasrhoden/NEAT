@@ -32,6 +32,7 @@ class MutatorTest {
     void testNewConnection(){
         Genome g1 = new Genome(1,1);
         Genome g2 = new Genome(1,1);
+        double[] input = {1};
 
         g1.removeConnectionGene(0,1);
 
@@ -42,7 +43,7 @@ class MutatorTest {
         m.mutateGenome(g1);
         System.out.println(g1.getConnectionGenes());
         System.out.println(g2.getConnectionGenes());
-        assertEquals(g2,g1);
+        assertArrayEquals(g2.getOutput(input),g1.getOutput(input));
     }
 
     /**

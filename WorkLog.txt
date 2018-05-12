@@ -11,3 +11,8 @@ Make the tests for 'Mutator' to pass. (May also need to write more tests for 'Mu
 Added new function to genome, getNodeSUpplyers, needed later to avoid create loop-conection genes during mutation.
 Mutator is gonna need some refractoring/Clean-up, can tell that duplicated code is coming up...
 The mutator tests may need to be looked-over, but should be ok. Ready to implemetn the LAST PARTS OF MUTATOR½!!
+
+2018-05-12
+Got the three Mutator tests to pass (testNewNode, innovationNumber, newConnection). So I think 'New Node' and 'New Connection'
+mutations are working. Next up is to write tests for the other mutations, maybe also write more tests for the above mentioned
+mutations as well, 3 tests doesn't feel too trustworthy... PRogräss änna!

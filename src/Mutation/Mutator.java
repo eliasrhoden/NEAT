@@ -3,9 +3,7 @@ package Mutation;
 import Network.ConnectionGene;
 import Network.Genome;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Used to mutate genomes
@@ -41,7 +39,7 @@ public class Mutator {
             addNode(g);
         }
         if(shouldAddConnection()){
-            AddConnection();
+            addConnection(g);
         }
         if(shouldMutateWeights()){
             //TODO
@@ -53,12 +51,56 @@ public class Mutator {
             //TODO
         }
     }
+    /**
+     * Chooses two nodes at random and connects them, also checks that the new connection don't creates an 'loop'.
+     * */
+    private void addConnection(Genome g) {
+        int inputNode = 0;
+        int outputNode = 0;
 
-    private void AddConnection() {
-
-
+        for(int i = 0;i<NR_OF_TRIES_TO_FIND_NODES;i++){
+            inputNode = getRandomHiddenNodeFromGenome(g,g.getInputNodeIDs());
+            outputNode =getRandomHiddenNodeFromGenome(g,g.getOutputNodeIDs());
+            if(validInputOutputNodes(outputNode,inputNode,g)){
+                int innovationNr = getInnovationNrForNewConnection(inputNode,outputNode);
+                g.addConnectionGene(inputNode,outputNode,innovationNr,1);
+                Mutation intoNode = new Mutation(inputNode,outputNode,innovationNr);
+                addToMemoryIfNeeded(intoNode);
+                return;
+            }
+        }
+        System.out.println("NO ABLE TO FIND NODE PAIRS TO ADD CONNECTION BETWEEN!");
+        //Maybe add some error message here
     }
 
+    private boolean validInputOutputNodes(int input, int output, Genome g){
+        int[] suplyers = g.getSupplyingNodesToNode(input);
+        for(int i:suplyers){
+            if(i == output)
+                return false;
+        }
+        return true;
+    }
+
+    private int getRandomHiddenNodeFromGenome(Genome g, int[] extraSelection) {
+        int[] hiddens = g.getHiddenNodeIDs();
+        int[] selection = new int[hiddens.length + extraSelection.length];
+        for(int i = 0;i<hiddens.length;i++){
+            selection[i] = hiddens[i];
+        }
+        for(int i = 0;i<extraSelection.length;i++){
+            selection[i + hiddens.length] = extraSelection[i];
+        }
+        int randomIndex = random.nextInt(selection.length);
+        return selection[randomIndex];
+    }
+
+
+
+
+    /**
+     * Chooses a connection at random and splits it into two with a new node in the split
+     * */
     private void addNode(Genome g) {
         ConnectionGene connection = getRandomEnabledConnection(g);
         int inp = connection.inputNode;
