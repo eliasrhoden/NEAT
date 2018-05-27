@@ -9,14 +9,12 @@ import java.util.*;
  * Used to mutate genomes
  * */
 
-
 /**
  * What nodes to add
  * What connections to add
  * What Weights to mutate
  * What Connections to disable
  * What Connections to re-enable
- *
  * */
 public class Mutator {
 
@@ -94,9 +92,6 @@ public class Mutator {
         int randomIndex = random.nextInt(selection.length);
         return selection[randomIndex];
     }
-
-
-
 
     /**
      * Chooses a connection at random and splits it into two with a new node in the split

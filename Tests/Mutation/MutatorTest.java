@@ -73,6 +73,60 @@ class MutatorTest {
         }
     }
 
+
+    @Test
+    void mutateWeightNewRandom(){
+        Genome g = new Genome(1,1);
+        MutatorParams par = new MutatorParams();
+        par.PROBABILITY_OF_WEIGHT_MUTATION = 1;
+        par.PROBABILITY_OF_NEW_RANDOM_WEIGHT_ON_CONNECTION = 1;
+        Mutator m = new Mutator(par);
+        m.mutateGenome(g);
+        double w =  g.getConnectionGenes().get(0).weight;
+        assertNotEquals(1.0,w);
+    }
+
+
+    /**
+     * Should for now only mutate +/- with (0-0.1)
+     * */
+    @Test
+    void mutateWeightSlightChange(){
+        Genome g = new Genome(1,1);
+        MutatorParams par = new MutatorParams();
+        par.PROBABILITY_OF_WEIGHT_MUTATION = 1;
+        par.PROBABILITY_OF_SLIGHT_CHANGE_OF_WEIGHT_ON_CONNECTION = 1;
+        Mutator m = new Mutator(par);
+        m.mutateGenome(g);
+        double w =  g.getConnectionGenes().get(0).weight;
+        assertTrue(w < 1.1);
+        assertTrue(w > 0.9);
+        assertNotEquals(1.0,w);
+    }
+
+    @Test
+    void disableGene(){
+        Genome g = new Genome(1,1);
+        MutatorParams par = new MutatorParams();
+        par.PROBABILITY_OF_DISABLE_GENE = 1;
+        Mutator m = new Mutator(par);
+        m.mutateGenome(g);
+        ConnectionGene gene = g.getConnectionGenes().get(0);
+        assertEquals(false,gene.enabled);
+    }
+
+    @Test
+    void reEnableGene(){
+        Genome g = new Genome(1,1);
+        g.getConnectionGenes().get(0).enabled = false;
+        MutatorParams par = new MutatorParams();
+        par.PROBABILITY_OF_RE_ENABLE_GENE = 1;
+        Mutator m = new Mutator(par);
+        m.mutateGenome(g);
+        ConnectionGene gene = g.getConnectionGenes().get(0);
+        assertEquals(true,gene.enabled);
+    }
+
     private void assertSameGenes(Genome g1, Genome g2){
         boolean g1ContainsG2 = g1_Contains_g2(g1,g2);
         boolean g2ContainsG1 = g1_Contains_g2(g2,g1);
