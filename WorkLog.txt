@@ -16,3 +16,8 @@ The mutator tests may need to be looked-over, but should be ok. Ready to impleme
 Got the three Mutator tests to pass (testNewNode, innovationNumber, newConnection). So I think 'New Node' and 'New Connection'
 mutations are working. Next up is to write tests for the other mutations, maybe also write more tests for the above mentioned
 mutations as well, 3 tests doesn't feel too trustworthy... PRogräss änna!
+
+2018-05-27
+Finished working on the mutator, didn't add more tests (Brinner in the knutarna änna), started working on the GenomeCrossover,
+need to finnish its tests and implement it. After that some spieces functionality need to be done and after that its just to
+implement the 'Population', gettin closeeee.

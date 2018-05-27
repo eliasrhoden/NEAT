@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a46ce829-c352-4943-8b3c-687bf6e28907" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Mutation/MutatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Mutation/MutatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mutation/Mutator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mutation/Mutator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mutation/MutatorParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mutation/MutatorParams.java" afterDir="false" />
+    <list default="true" id="a46ce829-c352-4943-8b3c-687bf6e28907" name="Default" comment="Ready to start working on">
+      <change afterPath="$PROJECT_DIR$/Tests/GenomeCrossoverTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GenomeCrossover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/WorkLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GenomeCrossoverFactory.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,29 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Mutator.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Mutation/Mutator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
-              <folding>
-                <element signature="e#4119#4120#0" expanded="true" />
-                <element signature="e#4199#4200#0" expanded="true" />
-                <element signature="e#4877#4878#0" expanded="true" />
-                <element signature="e#4957#4958#0" expanded="true" />
-                <element signature="method#getInnovationNrForNewConnection#0;class#Mutator#0" />
-                <element signature="method#addToMemoryIfNeeded#0;class#Mutator#0" />
-                <element signature="class#Mutation#0;class#Mutator#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MutatorTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/Mutation/MutatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="110" column="44" selection-start-line="110" selection-start-column="44" selection-end-line="110" selection-end-column="44" />
+            <state relative-caret-position="1785">
+              <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#assertSameGenes#0;class#MutatorTest#0" />
@@ -50,7 +32,44 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="GenomeCrossover.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GenomeCrossover.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GenomeCrossoverTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tests/GenomeCrossoverTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorkLog.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WorkLog.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -60,8 +79,12 @@
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/Mutation/MutatorParams.java" />
-        <option value="$PROJECT_DIR$/Tests/Mutation/MutatorTest.java" />
         <option value="$PROJECT_DIR$/src/Mutation/Mutator.java" />
+        <option value="$PROJECT_DIR$/Tests/Mutation/MutatorTest.java" />
+        <option value="$PROJECT_DIR$/src/GenomeCrossoverFactory.java" />
+        <option value="$PROJECT_DIR$/src/GenomeCrossover.java" />
+        <option value="$PROJECT_DIR$/Tests/GenomeCrossoverTest.java" />
+        <option value="$PROJECT_DIR$/WorkLog.txt" />
       </list>
     </option>
   </component>
@@ -92,19 +115,7 @@
             <path>
               <item name="Rockwell" type="b2602c69:ProjectViewProjectNode" />
               <item name="Rockwell" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Mutation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rockwell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Rockwell" type="462c0819:PsiDirectoryNode" />
               <item name="Tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rockwell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Rockwell" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
-              <item name="Mutation" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -118,7 +129,17 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -132,12 +153,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MutatorTest">
+  <component name="RunManager" selected="JUnit.All in Rockwell">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="All in Rockwell" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Rockwell" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
     <configuration name="MutatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Rockwell" />
@@ -210,9 +248,11 @@
     <list>
       <item itemvalue="JUnit.MutatorTest" />
       <item itemvalue="JUnit.MutatorTest.mutateWeightNewRandom" />
+      <item itemvalue="JUnit.All in Rockwell" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in Rockwell" />
         <item itemvalue="JUnit.MutatorTest" />
         <item itemvalue="JUnit.MutatorTest.mutateWeightNewRandom" />
       </list>
@@ -236,22 +276,17 @@
       <option name="project" value="LOCAL" />
       <updated>1527448159042</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Basic mutator is working!">
+      <created>1527451521746</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1527451521746</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MutatorTest - 2018.05.27 at 21h 39m 28s.xml">
-      <configuration name="MutatorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MutatorTest - 2018.05.27 at 21h 40m 10s.xml">
-      <configuration name="MutatorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MutatorTest - 2018.05.27 at 21h 40m 27s.xml">
-      <configuration name="MutatorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MutatorTest - 2018.05.27 at 21h 40m 44s.xml">
-      <configuration name="MutatorTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="MutatorTest - 2018.05.27 at 21h 40m 53s.xml">
       <configuration name="MutatorTest" configurationId="JUnit" />
     </history-entry>
@@ -270,6 +305,18 @@
     <history-entry file="MutatorTest_mutateWeightNewRandom - 2018.05.27 at 21h 57m 02s.xml">
       <configuration name="MutatorTest.mutateWeightNewRandom" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="MutatorTest_mutateWeightNewRandom - 2018.05.27 at 22h 04m 13s.xml">
+      <configuration name="MutatorTest.mutateWeightNewRandom" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MutatorTest - 2018.05.27 at 22h 04m 15s.xml">
+      <configuration name="MutatorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MutatorTest - 2018.05.27 at 22h 04m 46s.xml">
+      <configuration name="MutatorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Rockwell - 2018.05.27 at 22h 06m 07s.xml">
+      <configuration name="All in Rockwell" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -284,7 +331,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32661718" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.40087146" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34749454" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="4" />
@@ -310,7 +357,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added basic tests for the last mutator functionality." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added basic tests for the last mutator functionality." />
+    <MESSAGE value="Basic mutator is working!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic mutator is working!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -341,18 +389,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/Mutation/MutatorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="110" column="44" selection-start-line="110" selection-start-column="44" selection-end-line="110" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#assertSameGenes#0;class#MutatorTest#0" />
-            <element signature="method#g1_Contains_g2#0;class#MutatorTest#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Mutation/MutatorParams.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -362,8 +398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Mutation/Mutator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
+        <state relative-caret-position="1037">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
           <folding>
             <element signature="e#4119#4120#0" expanded="true" />
             <element signature="e#4199#4200#0" expanded="true" />
@@ -373,6 +409,49 @@
             <element signature="method#addToMemoryIfNeeded#0;class#Mutator#0" />
             <element signature="class#Mutation#0;class#Mutator#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/Mutation/MutatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#assertSameGenes#0;class#MutatorTest#0" />
+            <element signature="method#g1_Contains_g2#0;class#MutatorTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Population.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GenomeCrossover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/GenomeCrossoverTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WorkLog.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
