@@ -40,15 +40,45 @@ public class Mutator {
             addConnection(g);
         }
         if(shouldMutateWeights()){
-            //TODO
+            mutateWeights(g);
         }
         if(shouldDisableGene()){
-            //TODO
+            disableGene(g);
         }
         if(shouldEnableGene()){
-            //TODO
+            reenableGene(g);
         }
     }
+
+    private void reenableGene(Genome g) {
+        List<ConnectionGene> disabledGenes = new LinkedList<>();
+        for(ConnectionGene cg:g.getConnectionGenes()){
+            if(cg.enabled == false){
+                disabledGenes.add(cg);
+            }
+        }
+        if(disabledGenes.size() > 0){
+            ConnectionGene gene = disabledGenes.get(random.nextInt(disabledGenes.size()));
+            gene.enabled = true;
+        }
+    }
+
+    private void disableGene(Genome g) {
+        ConnectionGene geneToMutate = getRandomEnabledConnection(g);
+        geneToMutate.enabled = false;
+    }
+
+
+    private void mutateWeights(Genome g) {
+        ConnectionGene geneToMutate = getRandomEnabledConnection(g);
+        double w = geneToMutate.weight;
+        if(shouldSlightlyMutateWeight()){
+            geneToMutate.weight = w + (random.nextInt(20)-10)/100.0;
+        }else{
+            geneToMutate.weight = (random.nextInt(40)-20)/10.0;
+        }
+    }
+
     /**
      * Chooses two nodes at random and connects them, also checks that the new connection don't creates an 'loop'.
      * */
@@ -130,7 +160,10 @@ public class Mutator {
         return random.nextDouble() <= params.PROBABILITY_OF_DISABLE_GENE;
     }
 
-    public boolean shouldEnableGene(){
+    public boolean shouldSlightlyMutateWeight(){
+        return random.nextDouble() <= params.PROBABILITY_OF_SLIGHT_CHANGE_OF_WEIGHT_ON_CONNECTION;
+    }
+    private boolean shouldEnableGene() {
         return random.nextDouble() <= params.PROBABILITY_OF_RE_ENABLE_GENE;
     }
 

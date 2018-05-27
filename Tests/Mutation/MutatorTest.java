@@ -79,7 +79,7 @@ class MutatorTest {
         Genome g = new Genome(1,1);
         MutatorParams par = new MutatorParams();
         par.PROBABILITY_OF_WEIGHT_MUTATION = 1;
-        par.PROBABILITY_OF_NEW_RANDOM_WEIGHT_ON_CONNECTION = 1;
+        par.PROBABILITY_OF_SLIGHT_CHANGE_OF_WEIGHT_ON_CONNECTION = 0;
         Mutator m = new Mutator(par);
         m.mutateGenome(g);
         double w =  g.getConnectionGenes().get(0).weight;
@@ -99,8 +99,8 @@ class MutatorTest {
         Mutator m = new Mutator(par);
         m.mutateGenome(g);
         double w =  g.getConnectionGenes().get(0).weight;
-        assertTrue(w < 1.1);
-        assertTrue(w > 0.9);
+        assertTrue(w < 1.2);
+        assertTrue(w > 0.8);
         assertNotEquals(1.0,w);
     }
 
