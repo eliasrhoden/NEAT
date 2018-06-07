@@ -39,7 +39,7 @@ public class TestUtils {
         return res;
     }
 
-    public static void asssertGeneListsEquals(List<ConnectionGene> list1, List<ConnectionGene> list2){
+    public static void assertGeneListsEquals(List<ConnectionGene> list1, List<ConnectionGene> list2){
         if(list1 == null || list2 == null)
             fail("One of the lists were null!");
         assertEquals(list1.size(),list2.size());

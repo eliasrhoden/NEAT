@@ -1,12 +1,13 @@
 import Network.ConnectionGene;
 import Network.Genome;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import static Tests.TestUtils.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class GenomeCrossoverTest {
 
@@ -86,7 +87,32 @@ class GenomeCrossoverTest {
 
         List<ConnectionGene> result = GenomeCrossover.getCommonGenes(g2,g1);
 
-        asssertGeneListsEquals(exp,result);
+        assertGeneListsEquals(exp,result);
+    }
+
+    @Test
+    void listSorterTest(){
+        ConnectionGene g1 = new ConnectionGene(1,2,1);
+        ConnectionGene g2 = new ConnectionGene(1,2,5);
+        ConnectionGene g3 = new ConnectionGene(1,2,10);
+        ConnectionGene g4 = new ConnectionGene(1,2,2);
+        List<ConnectionGene> input = new ArrayList<>();
+        input.add(g1);
+        input.add(g2);
+        input.add(g3);
+        input.add(g4);
+        List<ConnectionGene> exp = new ArrayList<>();
+        exp.add(g1);
+        exp.add(g4);
+        exp.add(g2);
+        exp.add(g3);
+        GenomeCrossover.sortByInnovationNumber(input);
+
+        for(int i = 0;i<input.size();i++){
+            ConnectionGene gi = input.get(i);
+            ConnectionGene ge = exp.get(i);
+            Assertions.assertEquals(ge.innovationNumber,gi.innovationNumber);
+        }
     }
 
 
