@@ -1,7 +1,8 @@
-package Mutation;
-
+import Mutation.Mutator;
+import Mutation.MutatorParams;
 import Network.ConnectionGene;
 import Network.Genome;
+import static Tests.TestUtils.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -127,34 +128,5 @@ class MutatorTest {
         assertEquals(true,gene.enabled);
     }
 
-    private void assertSameGenes(Genome g1, Genome g2){
-        boolean g1ContainsG2 = g1_Contains_g2(g1,g2);
-        boolean g2ContainsG1 = g1_Contains_g2(g2,g1);
-        if(!(g1ContainsG2)){
-            fail("G1 did not contain same genes as G2");
-        }
-        if(!(g2ContainsG1)){
-            fail("G2 did not contain same genes as G1");
-        }
-    }
-
-    private boolean g1_Contains_g2(Genome g1, Genome g2){
-        boolean res = false;
-        System.out.println("G1 Contains G2");
-        for(ConnectionGene cg: g1.getConnectionGenes()){
-            res = false;
-            System.out.println(cg);
-            for(ConnectionGene cg2: g2.getConnectionGenes()){
-                if(cg.inputNode == cg2.inputNode &&
-                        cg.outputNode == cg2.outputNode &&
-                        cg.innovationNumber == cg2.innovationNumber){
-                    res = true;
-                    System.out.println("FOUND!");
-                }
-
-            }
-        }
-        return res;
-    }
 
 }
