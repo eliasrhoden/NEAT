@@ -21,3 +21,7 @@ mutations as well, 3 tests doesn't feel too trustworthy... PRogräss änna!
 Finished working on the mutator, didn't add more tests (Brinner in the knutarna änna), started working on the GenomeCrossover,
 need to finnish its tests and implement it. After that some spieces functionality need to be done and after that its just to
 implement the 'Population', gettin closeeee.
+
+2018-06-07
+Continued work on the Crossover, soon complete :3. Next up after that is to work on the 'Population' and spieces, but it's gettin close
+ÄNNA.

@@ -64,6 +64,10 @@ public class Genome {
         }
     }
 
+    public void clearAllConnectionGenes(){
+        connectionGenes.clear();
+    }
+
     private boolean isOutputID(int nodeID) {
         int[] outpIDs = getOutputNodeIDs();
         int index = Arrays.binarySearch(outpIDs,nodeID);

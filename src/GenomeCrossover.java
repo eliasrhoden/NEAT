@@ -10,7 +10,6 @@ import java.util.Random;
  */
 public class GenomeCrossover {
 
-    private final double PROPABILITY_TO_INHERIT_DISABLED_GENE = 1;
     private final Random random = new Random();
 
     /**
@@ -21,7 +20,6 @@ public class GenomeCrossover {
         Genome secondfittestParent = fittestParent==mom ? dad : mom;
         int nrOfInputs = mom.getInputNodeIDs().length;
         int nrOfOutputs = mom.getOutputNodeIDs().length;
-        int nrOfHiddenNodes = mom.getHiddenNodeIDs().length;
 
         List<ConnectionGene> genesForOffspring = new ArrayList<>();
 
@@ -45,12 +43,23 @@ public class GenomeCrossover {
             }
         }
 
-        /**TODO Create the new genome from the list of connections, determine how many nodes is required
-         * Find max Node ID and create all up to that. Maybe add more params in the future.
-        */
-        //TODO HÄR SLUTADE JAAAAG
-        //TODO Hanky panky (IN MATH) here
-        return null;
+        int maxNodeId = 0;
+        Genome offspring = new Genome(nrOfInputs,nrOfOutputs);
+        offspring.clearAllConnectionGenes();
+        for(ConnectionGene g :genesForOffspring){
+            int maxIdInConnection = Math.max(g.inputNode,g.outputNode);
+            maxNodeId = Math.max(maxIdInConnection,maxNodeId);
+        }
+
+        for(int i = (nrOfInputs + nrOfOutputs - 1);i<maxNodeId;i++){
+            offspring.addNode();
+        }
+
+        for(ConnectionGene g :genesForOffspring){
+            offspring.addConnectionGene(g.inputNode,g.outputNode,g.innovationNumber,g.weight);
+        }
+
+        return offspring;
     }
 
     private List<ConnectionGene> getExtraGenesFromSecond(Genome master, Genome evalutated) {
