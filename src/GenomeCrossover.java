@@ -36,13 +36,15 @@ public class GenomeCrossover {
                 genesForOffspring.add(commonGenesSecondFittest.get(i));
             }
         }
+        //This may be commented out, it's only used in the example.
+        //**********************************************
         genesForOffspring.addAll(extraGenesInFittest);
         for(ConnectionGene g : extraGenesInSecondFittest){
             if(random.nextBoolean()){
                 genesForOffspring.add(g);
             }
         }
-
+        //**********************************************
         int maxNodeId = 0;
         Genome offspring = new Genome(nrOfInputs,nrOfOutputs);
         offspring.clearAllConnectionGenes();
