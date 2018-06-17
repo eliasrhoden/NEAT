@@ -7,7 +7,7 @@ import java.util.*;
  * Created by elias on 2017-05-12.
  * A network/individual
  */
-public class Genome {
+public class Genome implements Comparable{
 
     private ArrayList<ConnectionGene> connectionGenes = new ArrayList<>();
     private int nrOfInputs;
@@ -248,5 +248,14 @@ public class Genome {
 
     public static double transferFunction(double x){
         return 1/(1+Math.exp(-4.6 * x));
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if(o == null || !(o instanceof Genome)){
+            return 0;
+        }
+        int otherFitness = ((Genome) o).fitness;
+        return otherFitness-fitness;
     }
 }

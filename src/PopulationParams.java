@@ -20,4 +20,7 @@ public class PopulationParams {
     //Cross-over properties
     public double TOP_GENOMES_TO_COPY_TO_NEXT_GEN_PERCENTAGE;       //Percentage of the fittest networks that just get copied into next generation
     public double TOP_GENOMES_TO_CROSSOVER_TO_NEXT_GEN_PERCENTAGE;  //Percentage of the fittest networks that are allowed to crossover, to from the next generation
+
+
+
 }

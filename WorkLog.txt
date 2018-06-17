@@ -25,3 +25,12 @@ implement the 'Population', gettin closeeee.
 2018-06-07
 Continued work on the Crossover, soon complete :3. Next up after that is to work on the 'Population' and spieces, but it's gettin close
 ÄNNA.
+
+2018-06-10
+Finished the SpicesFilter, added a few tests and made them pass. Next up is to get the Population class done and then ITS DONE ÄNNA <3.
+Hopefully it will be able to pass the XOR test from the paper... O_o
+
+2018-16-17
+Worked on the 'Population'-class, almost ready for the XOR test, didn't have the energy to write tests for the population class
+will test manualy later. After finishing the Population class I need to write the XOR-test itself, propbz as a test-class.
+

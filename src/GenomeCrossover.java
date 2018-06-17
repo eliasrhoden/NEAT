@@ -11,6 +11,7 @@ import java.util.Random;
 public class GenomeCrossover {
 
     private final Random random = new Random();
+    private final double PROPABILITY_OF_RE_ENABLE_GENES = 0.25;
 
     /**
      * How two Networks/Genomes produces an offspring
@@ -45,6 +46,15 @@ public class GenomeCrossover {
             }
         }
         //**********************************************
+
+        for(ConnectionGene gene:genesForOffspring){
+            if(!gene.enabled){
+                if(random.nextDouble() <= PROPABILITY_OF_RE_ENABLE_GENES){
+                    gene.enabled = true;
+                }
+            }
+        }
+
         int maxNodeId = 0;
         Genome offspring = new Genome(nrOfInputs,nrOfOutputs);
         offspring.clearAllConnectionGenes();

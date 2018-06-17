@@ -42,9 +42,6 @@ public class Mutator {
         if(shouldMutateWeights()){
             mutateWeights(g);
         }
-        if(shouldDisableGene()){
-            disableGene(g);
-        }
         if(shouldEnableGene()){
             reenableGene(g);
         }
@@ -70,12 +67,13 @@ public class Mutator {
 
 
     private void mutateWeights(Genome g) {
-        ConnectionGene geneToMutate = getRandomEnabledConnection(g);
-        double w = geneToMutate.weight;
-        if(shouldSlightlyMutateWeight()){
-            geneToMutate.weight = w + (random.nextInt(20)-10)/100.0;
-        }else{
-            geneToMutate.weight = (random.nextInt(40)-20)/10.0;
+        for(ConnectionGene gene:g.getEnabledGenes()){
+            double w = gene.weight;
+            if(shouldSlightlyMutateWeight()){
+                gene.weight = w + (random.nextInt(20)-10)/100.0;
+            }else{
+                gene.weight = (random.nextInt(40)-20)/10.0;
+            }
         }
     }
 
