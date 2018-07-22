@@ -1,4 +1,4 @@
-package Mutation;
+package MutatingOfGenome;
 
 /**
  * Created by elias on 2017-05-22.

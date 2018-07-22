@@ -30,7 +30,10 @@ Continued work on the Crossover, soon complete :3. Next up after that is to work
 Finished the SpicesFilter, added a few tests and made them pass. Next up is to get the Population class done and then ITS DONE ÄNNA <3.
 Hopefully it will be able to pass the XOR test from the paper... O_o
 
-2018-16-17
+2018-06-17
 Worked on the 'Population'-class, almost ready for the XOR test, didn't have the energy to write tests for the population class
 will test manualy later. After finishing the Population class I need to write the XOR-test itself, propbz as a test-class.
 
+2018-07-22
+Started to run the XOR-test, currently no errors, but no good result. Think I need to add spieces handling during crossover.
+So crossover only happens wirhin spieces.

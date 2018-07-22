@@ -2,8 +2,7 @@ package Network;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -257,11 +256,120 @@ class GenomeTest {
         assertTrue(result.containsAll(setFromArray(expected)));
     }
 
+    @Test
+    public void supplyFoundBuggTest() {
+
+        /*
+        [INPUT NODE: 0 OUTPUT NODE: 3 ENABLED: true]
+        [INPUT NODE: 1 OUTPUT NODE: 3 ENABLED: false]
+        [INPUT NODE: 2 OUTPUT NODE: 3 ENABLED: true]
+
+        [INPUT NODE: 4 OUTPUT NODE: 3 ENABLED: true]
+        [INPUT NODE: 0 OUTPUT NODE: 4 ENABLED: true]
+        [INPUT NODE: 1 OUTPUT NODE: 4 ENABLED: false]
+        [INPUT NODE: 1 OUTPUT NODE: 5 ENABLED: true]
+        [INPUT NODE: 5 OUTPUT NODE: 4 ENABLED: true]
+        [INPUT NODE: 1 OUTPUT NODE: 6 ENABLED: true]
+        [INPUT NODE: 6 OUTPUT NODE: 3 ENABLED: true]
+        [INPUT NODE: 4 OUTPUT NODE: 5 ENABLED: true]
+        *
+        * */
+
+        Genome g = new Genome(3, 1);
+        g.addNode();
+        g.addNode();
+        g.addNode();
+        g.addConnectionGene(4, 3, 1, 1);
+        g.addConnectionGene(0, 4, 1, 1);
+        g.addConnectionGene(1, 4, 1, 1);
+        g.addConnectionGene(1, 5, 1, 1);
+        g.addConnectionGene(5, 4, 1, 1);
+        g.addConnectionGene(1, 6, 1, 1);
+        g.addConnectionGene(6, 3, 1, 1);
+
+        g.disableConnectionGene(1, 3);
+        g.disableConnectionGene(1, 4);
+
+        int nodes[] = g.getSupplyingNodesToNode(4);
+        int expexted[] = {0,1, 5};
+        assertEquals(expexted.length, nodes.length);
+
+        for (int ex : expexted) {
+
+            if(!(arrayContains(nodes,ex))){
+                String msg = "";
+                for(int n:nodes)
+                    msg += n + " ";
+                msg += "\n";
+                msg += "Did not contain: " + ex;
+                fail(msg);
+            }
+        }
+
+    }
+
+
+    private boolean arrayContains(int[] arr, int val){
+        for(int v :arr){
+            if(v==val)
+                return true;
+        }
+        return false;
+    }
+
     private Set<Integer> setFromArray(int[] arr){
         Set<Integer> res = new HashSet<>();
         for(int i : arr)
             res.add(i);
         return res;
+    }
+
+    /**
+     * Sometimes during crossover *or* mutation, loops occur within the networks.
+     * Cant find the cause of why right now, but will write a functions that detects loops
+     * so these networks can be caught.
+     * */
+    @Test
+    void testGenomeCheck(){
+        Genome g = new Genome(3,1);
+        g.addNode();
+        g.addNode();
+        g.addNode();
+        g.addConnectionGene(0,4,1,1);
+        g.addConnectionGene(4,5,1,1);
+        g.addConnectionGene(5,6,1,1);
+        g.addConnectionGene(6,3,1,1);
+        g.addConnectionGene(6,4,1,1); //Loop connection
+
+        assertFalse(g.freeFromLoops());
+
+    }
+    @Test
+    void testGenomeCheck2(){
+        Genome g = new Genome(3,1);
+        g.addNode();
+        g.addNode();
+        g.addNode();
+        g.addConnectionGene(0,4,1,1);
+        g.addConnectionGene(4,5,1,1);
+        g.addConnectionGene(5,6,1,1);
+
+
+        assertTrue(g.freeFromLoops());
+
+    }
+    @Test
+    void testGenomeCheck3(){
+        Genome g = new Genome(3,1);
+        g.addNode();
+        g.addNode();
+        g.addConnectionGene(0,4,1,1);
+        g.addConnectionGene(4,5,1,1);
+        g.addConnectionGene(5,3,1,1);
+
+
+        assertTrue(g.freeFromLoops());
+
     }
 
 }

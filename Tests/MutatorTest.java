@@ -1,5 +1,5 @@
-import Mutation.Mutator;
-import Mutation.MutatorParams;
+import MutatingOfGenome.Mutator;
+import MutatingOfGenome.MutatorParams;
 import Network.ConnectionGene;
 import Network.Genome;
 import static Tests.TestUtils.*;
@@ -128,5 +128,76 @@ class MutatorTest {
         assertEquals(true,gene.enabled);
     }
 
+    @Test
+    void buggTest(){
+        Genome g = new Genome(3, 1);
+        g.addNode();
+        g.addNode();
+        g.addNode();
+        g.addConnectionGene(4, 3, 1, 1);
+        g.addConnectionGene(0, 4, 1, 1);
+        g.addConnectionGene(1, 4, 1, 1);
+        g.addConnectionGene(1, 5, 1, 1);
+        g.addConnectionGene(5, 4, 1, 1);
+        g.addConnectionGene(1, 6, 1, 1);
+        g.addConnectionGene(6, 3, 1, 1);
+
+        g.disableConnectionGene(1, 3);
+        g.disableConnectionGene(1, 4);
+        MutatorParams par = new MutatorParams();
+        Mutator m = new Mutator(par);
+
+        assertFalse(m.validInputOutputNodes(4,5,g));
+
+
+    }
+
+
+
+    @Test
+    public void supplyFoundBuggTest2() {
+
+        /*
+        Genome, Nr or inputs: 3, Nr of outputs: 1, Nr of hidden nodes: 2
+        ConnectionGenes :
+        [0 -> 3 EN: true IN: 0 W: 1.05]
+        [1 -> 3 EN: true IN: 1 W: 0.9299999999999999]
+        [2 -> 3 EN: true IN: 2 W: 1.01]
+
+        [2 -> 4 EN: true IN: 7 W: 0.95]
+        [4 -> 3 EN: false IN: 5 W: 1.0]
+        [4 -> 5 EN: true IN: 8 W: 0.95]
+        [5 -> 3 EN: true IN: 9 W: 0.9]
+        [5 -> 4 EN: true IN: 10 W: 1.03]
+        * */
+
+        Genome g = new Genome(3, 1);
+        g.addNode();
+        g.addNode();
+
+        g.addConnectionGene(2, 4, 1, 1);
+        g.addConnectionGene(4, 3, 1, 1);
+        g.addConnectionGene(4, 5, 1, 1);
+        g.addConnectionGene(5, 3, 1, 1);
+
+        g.disableConnectionGene(4, 3);
+
+
+        MutatorParams par = new MutatorParams();
+        Mutator m = new Mutator(par);
+
+        assertFalse(m.validInputOutputNodes(5,4,g));
+
+
+    }
+
+    @Test
+    void debuygStopTest(){
+        Genome g = new Genome(3,1);
+        g.addConnectionGene(3,1,1,1);
+        MutatorParams par = new MutatorParams();
+        Mutator m = new Mutator(par);
+        assertTrue(m.debugStop(g));
+    }
 
 }

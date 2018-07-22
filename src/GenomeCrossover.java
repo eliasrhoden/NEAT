@@ -1,3 +1,4 @@
+import MutatingOfGenome.Mutator;
 import Network.ConnectionGene;
 import Network.Genome;
 
@@ -30,21 +31,33 @@ public class GenomeCrossover {
         List<ConnectionGene> extraGenesInFittest = getExtraGenesFromSecond(secondfittestParent,fittestParent);
         List<ConnectionGene> extraGenesInSecondFittest = getExtraGenesFromSecond(fittestParent,secondfittestParent);
 
-        for(int i = 0;i<commonGenesFittest.size();i++){
+        if(commonGenesFittest.size() != commonGenesSecondFittest.size()){
+            throw new RuntimeException("VAFAN DE ÄR OLIKA!");
+        }
+
+
+        int loopEnd = Math.min(commonGenesFittest.size(),commonGenesSecondFittest.size());
+        for(int i = 0;i<loopEnd;i++){
             if(random.nextBoolean()){
                 genesForOffspring.add(commonGenesFittest.get(i));
             }else{
                 genesForOffspring.add(commonGenesSecondFittest.get(i));
             }
         }
+
+        genesForOffspring.addAll(extraGenesInFittest);
+
         //This may be commented out, it's only used in the example.
         //**********************************************
-        genesForOffspring.addAll(extraGenesInFittest);
+
+        /*
         for(ConnectionGene g : extraGenesInSecondFittest){
+
             if(random.nextBoolean()){
                 genesForOffspring.add(g);
             }
         }
+        */
         //**********************************************
 
         for(ConnectionGene gene:genesForOffspring){
@@ -68,7 +81,15 @@ public class GenomeCrossover {
         }
 
         for(ConnectionGene g :genesForOffspring){
+            if(Mutator.debugStop(offspring)){
+                System.out.println("EEEE");
+                throw new RuntimeException("VAFAN");
+            }
             offspring.addConnectionGene(g.inputNode,g.outputNode,g.innovationNumber,g.weight);
+            if(Mutator.debugStop(offspring)){
+                System.out.println("EEEE");
+                offspring.removeConnectionGene(g.inputNode,g.outputNode);
+            }
         }
 
         return offspring;
@@ -86,6 +107,10 @@ public class GenomeCrossover {
             result.add(cg);
         }
         return result;
+    }
+
+    private boolean geneCompatibaleToExisting(List<ConnectionGene> genes, ConnectionGene gene){
+        return false;
     }
 
     public static List<ConnectionGene> getCommonGenes(Genome master, Genome evalutated){

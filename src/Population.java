@@ -1,6 +1,6 @@
 
-import Mutation.Mutator;
-import Mutation.MutatorParams;
+import MutatingOfGenome.Mutator;
+import MutatingOfGenome.MutatorParams;
 import Network.Genome;
 
 import java.util.ArrayList;
@@ -14,24 +14,22 @@ import java.util.List;
  */
 public class Population {
 
-    /**
-     * To be considered as PSEUDO-code only so far, need to implemtnes lower level peices first
-     * And also write TESTS for this...
-     *
-     * */
-
     private Genome[] population;
     private Mutator mutator;
     private SpieceFilter spieceFilter;
     private int generation = 0;
     private double dT;
+    private PopulationParams params;
+    private GenomeCrossover crossover;
 
     public Population(PopulationParams neatParams) {
         createPopulation(neatParams.NR_OF_INPUTS,neatParams.NR_OF_OUTPUTS,neatParams.POPULATION_SIZE);
         MutatorParams mutatorParams = createMutatorParams();
         mutator = new Mutator(mutatorParams);
         spieceFilter = new SpieceFilter(neatParams.C1,neatParams.C2,neatParams.C3);
-        dT = neatParams.DELTA_T;
+        dT = neatParams.DELTA_T;    //Kan tas bort
+        params = neatParams;
+        crossover = new GenomeCrossover();
     }
 
     private MutatorParams createMutatorParams() {
@@ -39,8 +37,8 @@ public class Population {
         params.PROBABILITY_OF_WEIGHT_MUTATION = 0.8;
         params.PROBABILITY_OF_SLIGHT_CHANGE_OF_WEIGHT_ON_CONNECTION = 0.9;
         params.PROBABILITY_OF_DISABLE_GENE = 0.3;
-        params.PROBABILITY_OF_NEW_NODE = 0.05;
-        params.PROBABILITY_OF_NEW_CONNECTION = 0.1;
+        params.PROBABILITY_OF_NEW_NODE = 0.03;
+        params.PROBABILITY_OF_NEW_CONNECTION = 0.05;
         params.PROBABILITY_OF_RE_ENABLE_GENE = 0.02;
         return params;
     }
@@ -60,9 +58,52 @@ public class Population {
         List<Spiece> spieces = filterOutSpieces(population);
 
         adjustFitnessToSpecies(spieces);
-        Collections.sort(spieces);
+        Collections.sort(sortedPopulation);
 
-        //TODO
+        List<Genome> nextGen = new ArrayList<>();
+
+        for(int i=0;
+            i<params.TOP_GENOMES_TO_COPY_TO_NEXT_GEN_PERCENTAGE*params.POPULATION_SIZE;
+            i++){
+            Genome g = sortedPopulation.get(i);
+            if(g.freeFromLoops()){
+                nextGen.add(g);
+            }
+        }
+        for(int i=0;
+            i<params.TOP_GENOMES_TO_CROSSOVER_TO_NEXT_GEN_PERCENTAGE*params.POPULATION_SIZE;
+            i++){
+            Genome parent1 = sortedPopulation.get(i);
+            Genome parent2 = sortedPopulation.get(i+1);
+            Genome offspring = crossover.crossOver(parent1,parent2);
+
+            if(offspring.freeFromLoops()){
+                nextGen.add(offspring);
+            }
+        }
+        double topGenomesToMutateIntoNextGen = 1-(params.TOP_GENOMES_TO_COPY_TO_NEXT_GEN_PERCENTAGE +
+                params.TOP_GENOMES_TO_CROSSOVER_TO_NEXT_GEN_PERCENTAGE);
+
+        for(int i=0; i<topGenomesToMutateIntoNextGen*params.POPULATION_SIZE;
+            i++){
+            Genome g = sortedPopulation.get(i);
+            mutator.mutateGenome(g);
+            if(g.freeFromLoops()){
+                nextGen.add(g);
+            }
+        }
+
+        for(int i=0;i<nextGen.size();i++){
+            Genome g = nextGen.get(i);
+            if(!g.freeFromLoops()){
+                nextGen.remove(g);
+                i--;
+            }
+        }
+
+        Genome[] newPop = new Genome[nextGen.size()];
+        newPop = nextGen.toArray(newPop);
+        population = newPop;
 
         generation++;
     }
@@ -108,10 +149,10 @@ public class Population {
     }
 
     public Genome getFittestGenome() {
-        Genome fittest = new Genome(1,1);
-        fittest.setFitness(0);
+        Genome fittest = population[0];
+        int bestFitness = 0;
         for(Genome g:population){
-            if(g.getFitness() > fittest.getFitness()){
+            if(g.getFitness() > bestFitness){
                 fittest = g;
             }
         }

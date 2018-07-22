@@ -1,4 +1,4 @@
-package Mutation;
+package MutatingOfGenome;
 
 import Network.ConnectionGene;
 import Network.Genome;
@@ -29,22 +29,69 @@ public class Mutator {
         this.params = params;
         random = new Random();
         mutationMemory = new ArrayList<Mutation>();
+        innovationCounter = -1;
     }
 
     public void mutateGenome(Genome g){
 
+        boolean node,conn,mut,enabl;
+        node = false;
+        conn = false;
+        mut = false;
+        enabl = false;
+
+        if(innovationCounter == -1){
+            innovationCounter = g.getHighestInnovationNumber()+1;
+        }
+
+
         if(shouldAddNode()){
             addNode(g);
+            node = true;
         }
         if(shouldAddConnection()){
             addConnection(g);
+            conn = true;
         }
         if(shouldMutateWeights()){
             mutateWeights(g);
+            mut = true;
         }
         if(shouldEnableGene()){
             reenableGene(g);
+            enabl = true;
         }
+        if(shouldDisableGene()){
+            disableGene(g);
+        }
+        String sss = "ff" + node + conn + mut + enabl;
+        if(debugStop(g)){
+            System.out.println("CHEAHH");
+        }
+
+    }
+
+
+    public static boolean debugStop(Genome g){
+        ArrayList<Integer> inputs = new ArrayList<>();
+        ArrayList<Integer> outputs = new ArrayList<>();
+
+        for(ConnectionGene cg :g.getConnectionGenes()){
+            inputs.add(cg.inputNode);
+            outputs.add(cg.outputNode);
+        }
+
+        for(int i=0;i<inputs.size();i++){
+            int inVal = inputs.get(i);
+            if(outputs.contains(inVal)){
+                int index = outputs.indexOf(inVal);
+                if(inputs.get(index) == outputs.get(i)){
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     private void reenableGene(Genome g) {
@@ -61,6 +108,8 @@ public class Mutator {
     }
 
     private void disableGene(Genome g) {
+        if(g.getEnabledGenes().size()==0)
+            return;
         ConnectionGene geneToMutate = getRandomEnabledConnection(g);
         geneToMutate.enabled = false;
     }
@@ -70,7 +119,7 @@ public class Mutator {
         for(ConnectionGene gene:g.getEnabledGenes()){
             double w = gene.weight;
             if(shouldSlightlyMutateWeight()){
-                gene.weight = w + (random.nextInt(20)-10)/100.0;
+                gene.weight = w + (random.nextInt(20)-10)/1000.0;
             }else{
                 gene.weight = (random.nextInt(40)-20)/10.0;
             }
@@ -99,14 +148,31 @@ public class Mutator {
         //Maybe add some error message here
     }
 
-    private boolean validInputOutputNodes(int input, int output, Genome g){
+
+    public boolean validInputOutputNodes(int input, int output, Genome g){
+
+
+        try {
+            g.getConnectionWeight(input,output);
+            return false;
+        }catch (IllegalArgumentException e){
+
+        }
+
+        if(input==output)
+            return false;
+
         int[] suplyers = g.getSupplyingNodesToNode(input);
+
         for(int i:suplyers){
             if(i == output)
                 return false;
         }
         return true;
     }
+
+
+
 
     private int getRandomHiddenNodeFromGenome(Genome g, int[] extraSelection) {
         int[] hiddens = g.getHiddenNodeIDs();
@@ -125,6 +191,8 @@ public class Mutator {
      * Chooses a connection at random and splits it into two with a new node in the split
      * */
     private void addNode(Genome g) {
+        if(g.getEnabledGenes().size()==0)
+            return;
         ConnectionGene connection = getRandomEnabledConnection(g);
         int inp = connection.inputNode;
         int out = connection.outputNode;
@@ -201,27 +269,4 @@ public class Mutator {
         }
     }
 
-    private class Mutation{
-        private int input;
-        private int output;
-        public int innovationNr;
-        public Mutation(int input, int output,int innovationNr){
-            this.input = input;
-            this.output = output;
-            this.innovationNr = innovationNr;
-        }
-
-        @Override
-        public boolean equals(Object obj){
-            if(!(obj instanceof Mutation))
-                return false;
-            Mutation m = (Mutation) obj;
-
-            if(m.input != input)
-                return false;
-            if(m.output != output)
-                return false;
-            return true;
-        }
-    }
 }

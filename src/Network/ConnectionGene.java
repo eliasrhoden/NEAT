@@ -34,5 +34,9 @@ public class ConnectionGene {
         }
         return false;
     }
+    @Override
+    public String toString(){
+        return "[" + inputNode + " -> " + outputNode + " EN: " + enabled + " IN: " + innovationNumber + " W: " + weight +  "]";
+    }
 
 }

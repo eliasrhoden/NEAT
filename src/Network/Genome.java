@@ -64,6 +64,16 @@ public class Genome implements Comparable{
         }
     }
 
+    public String debugString(){
+        String res = toString() + "\n";
+        res += "ConnectionGenes :\n";
+        for(ConnectionGene cg:connectionGenes){
+            res += cg.toString() + "\n";
+        }
+
+        return res;
+    }
+
     public void clearAllConnectionGenes(){
         connectionGenes.clear();
     }
@@ -258,4 +268,43 @@ public class Genome implements Comparable{
         int otherFitness = ((Genome) o).fitness;
         return otherFitness-fitness;
     }
+
+    public boolean freeFromLoops(){
+
+        Set<Integer> visited;
+        boolean result = true;
+        for(int i:getOutputNodeIDs()){
+            visited = new HashSet<>();
+            result = result && exploreNode(visited,i);
+            if(!result)
+                break;
+        }
+
+        return result;
+    }
+
+    private boolean exploreNode(Set<Integer> visited, int node){
+
+        if(visited.contains(node) && !isInput(node)){
+            return false;
+        }
+
+        visited.add(node);
+        Set<ConnectionGene> inputGenes = new HashSet<>();
+        for(ConnectionGene cg:connectionGenes){
+            if(cg.outputNode==node){
+                inputGenes.add(cg);
+            }
+        }
+        boolean result = true;
+        for(ConnectionGene cg:inputGenes){
+            result = result && exploreNode(visited,cg.inputNode);
+        }
+        return result;
+    }
+
+    private boolean isInput(int id){
+        return id < nrOfInputs;
+    }
+
 }
