@@ -15,8 +15,8 @@ public class XorTest {
     private PopulationParams createParams(){
         PopulationParams par = new PopulationParams();
         par.TOP_GENOMES_TO_CROSSOVER_TO_NEXT_GEN_PERCENTAGE = 0.3;
-        par.TOP_GENOMES_TO_COPY_TO_NEXT_GEN_PERCENTAGE = 0.4;
-        par.POPULATION_SIZE = 200;
+        par.TOP_GENOMES_TO_COPY_TO_NEXT_GEN_PERCENTAGE = 0.5;
+        par.POPULATION_SIZE = 250;
         par.C1 = 1;
         par.C2 = 1;
         par.C3 = 0.4;
@@ -81,14 +81,16 @@ public class XorTest {
         Genome best = null;
         generateInputsNFacit();
         loops:
-        for(int i=0;i<80;i++){
+        for(int i=0;i<200;i++){
             population.createNextGeneration();
             for(Genome g:population.getPopulation()){
                 double totalErrorDist = 0;
                 int fittnes = 0;
                 for(int j = 0;j<4;j++){
                     double[] out = g.getOutput(inputs[j]);
-                    //int outV = (int) Math.round(out[0]);
+
+                    out[0] = Math.round(out[0]);
+
                     totalErrorDist += Math.abs(out[0] - facit[j]);
                 }
 
@@ -97,7 +99,7 @@ public class XorTest {
                 }
 
                 g.setFitness(fittnes);
-                if(fittnes>=7){
+                if(fittnes>=16){
                     System.out.println("NÄMEEEENENENENENENEN");
                     System.out.println(fittnes);
                     best = g;
