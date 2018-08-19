@@ -36,10 +36,10 @@ public class Population {
         MutatorParams params = new MutatorParams();
         params.PROBABILITY_OF_WEIGHT_MUTATION = 0.8;
         params.PROBABILITY_OF_SLIGHT_CHANGE_OF_WEIGHT_ON_CONNECTION = 0.9;
-        params.PROBABILITY_OF_DISABLE_GENE = 0.3;
-        params.PROBABILITY_OF_NEW_NODE = 0.03;
-        params.PROBABILITY_OF_NEW_CONNECTION = 0.05;
-        params.PROBABILITY_OF_RE_ENABLE_GENE = 0.02;
+        params.PROBABILITY_OF_DISABLE_GENE = 0.1;
+        params.PROBABILITY_OF_NEW_NODE = 0.1;
+        params.PROBABILITY_OF_NEW_CONNECTION = 0.1;
+        params.PROBABILITY_OF_RE_ENABLE_GENE = 0.09;
         return params;
     }
 
@@ -63,7 +63,7 @@ public class Population {
         List<Genome> nextGen = new ArrayList<>();
 
         for(int i=0;
-            i<params.TOP_GENOMES_TO_COPY_TO_NEXT_GEN_PERCENTAGE*params.POPULATION_SIZE;
+            i<params.TOP_GENOMES_TO_COPY_TO_NEXT_GEN_PERCENTAGE*sortedPopulation.size();
             i++){
             Genome g = sortedPopulation.get(i);
             if(g.freeFromLoops()){
@@ -71,7 +71,7 @@ public class Population {
             }
         }
         for(int i=0;
-            i<params.TOP_GENOMES_TO_CROSSOVER_TO_NEXT_GEN_PERCENTAGE*params.POPULATION_SIZE;
+            i<params.TOP_GENOMES_TO_CROSSOVER_TO_NEXT_GEN_PERCENTAGE*sortedPopulation.size();
             i++){
             Genome parent1 = sortedPopulation.get(i);
             Genome parent2 = sortedPopulation.get(i+1);
@@ -81,11 +81,11 @@ public class Population {
                 nextGen.add(offspring);
             }
         }
-        double topGenomesToMutateIntoNextGen = 1-(params.TOP_GENOMES_TO_COPY_TO_NEXT_GEN_PERCENTAGE +
-                params.TOP_GENOMES_TO_CROSSOVER_TO_NEXT_GEN_PERCENTAGE);
+        double topGenomesToMutateIntoNextGen = params.POPULATION_SIZE - nextGen.size();
+        if(topGenomesToMutateIntoNextGen>=sortedPopulation.size())
+            topGenomesToMutateIntoNextGen = sortedPopulation.size();
 
-        for(int i=0; i<topGenomesToMutateIntoNextGen*params.POPULATION_SIZE;
-            i++){
+        for(int i=0; i<topGenomesToMutateIntoNextGen; i++){
             Genome g = sortedPopulation.get(i);
             mutator.mutateGenome(g);
             if(g.freeFromLoops()){
