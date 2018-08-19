@@ -4,7 +4,7 @@
 My take at implementing an NEAT AI Engine. More info about NeuroEvolution
 of Augmenting Topologies (NEAT) at: http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf
 
-Currently it's able to pass the XOR-test, described in the paper abowe.
+Currently it's able to pass the XOR-test, described in the paper abowe. The code to run the XOR-test is whitin the Test-folder.
 
 Evolving Neural Networks through
 Augmenting Topologies
