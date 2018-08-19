@@ -37,3 +37,7 @@ will test manualy later. After finishing the Population class I need to write th
 2018-07-22
 Started to run the XOR-test, currently no errors, but no good result. Think I need to add spieces handling during crossover.
 So crossover only happens wirhin spieces.
+
+2018-08-19
+Needed to fix the fitness evaluation for the XOR-test, didn't need to do the crossover whitin spices. Now the XOR-works! <3
+
